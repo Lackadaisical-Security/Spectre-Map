@@ -1,6 +1,6 @@
 # Contributing to SpectreMap
 
-Thank you for your interest in contributing to SpectreMap! This document provides guidelines for contributing to the project.
+So you want to contribute to SpectreMap? Good. We need people who can code, not people who can talk about coding.
 
 ## Table of Contents
 
@@ -16,103 +16,112 @@ Thank you for your interest in contributing to SpectreMap! This document provide
 
 ## Code of Conduct
 
-This project adheres to a [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to lackadaisicalresearch@pm.me.
+Read [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md). TL;DR: Be competent, be honest, don't be a criminal. Your code speaks louder than anything else. If you can't handle direct technical criticism, this isn't for you.
 
 ## Getting Started
 
 ### Prerequisites
 
-Before contributing, ensure you have:
+Before you waste anyone's time, make sure you have:
 
-* C++17 compatible compiler (GCC 8+, Clang 7+, MSVC 2019+)
-* CMake 3.16 or higher
-* Qt 6.6.0 or higher
-* OpenSSL 3.x
-* SQLite 3.x
-* Git for version control
+* **C++17 compatible compiler** (GCC 8+, Clang 7+, MSVC 2019+)
+* **CMake 3.16+**
+* **Qt 6.6.0+**
+* **OpenSSL 3.x**
+* **SQLite 3.x**
+* **Git** (obviously)
+* **Brain** (not optional)
 
 ### Setting Up Development Environment
 
-1. **Fork the Repository**
-   ```bash
-   # Fork via GitHub UI, then clone your fork
-   git clone https://github.com/YOUR_USERNAME/SpectreMap.git
-   cd SpectreMap
-   ```
+#### 1. Fork the Repository
+```bash
+# Fork via GitHub UI, then clone your fork
+git clone https://github.com/YOUR_USERNAME/SpectreMap.git
+cd SpectreMap
+```
 
-2. **Add Upstream Remote**
-   ```bash
-   git remote add upstream https://github.com/Lackadaisical-Security/SpectreMap.git
-   ```
+#### 2. Add Upstream Remote
+```bash
+git remote add upstream https://github.com/Lackadaisical-Security/SpectreMap.git
+```
 
-3. **Install Dependencies**
-   ```bash
-   # Ubuntu/Debian
-   sudo apt install build-essential cmake qt6-base-dev qt6-tools-dev \
-                    libqt6opengl6-dev libssl-dev libsqlite3-dev
+#### 3. Install Dependencies
 
-   # macOS
-   brew install cmake qt6 openssl sqlite3
+**Ubuntu/Debian:**
+```bash
+sudo apt install build-essential cmake qt6-base-dev qt6-tools-dev \
+                 libqt6opengl6-dev libssl-dev libsqlite3-dev
+```
 
-   # Windows
-   # See docs/WINDOWS_BUILD.md
-   ```
+**macOS:**
+```bash
+brew install cmake qt6 openssl sqlite3
+```
 
-4. **Build in Debug Mode**
-   ```bash
-   mkdir build && cd build
-   cmake -DCMAKE_BUILD_TYPE=Debug ..
-   make -j$(nproc)
-   ```
+**Windows:**
+See `docs/WINDOWS_BUILD.md` and pray.
 
-5. **Run Tests**
-   ```bash
-   make test
-   ```
+#### 4. Build in Debug Mode
+```bash
+mkdir build && cd build
+cmake -DCMAKE_BUILD_TYPE=Debug ..
+make -j$(nproc)
+```
+
+#### 5. Run Tests
+```bash
+make test
+```
+
+If this fails, fix your environment before opening an issue.
 
 ## Development Process
 
 ### Branching Strategy
 
-* `main` - Stable production releases
+* `main` - Stable production releases (don't touch unless you're a maintainer)
 * `develop` - Integration branch for features
-* `feature/feature-name` - Feature branches
+* `feature/your-feature` - Your feature branch
 * `bugfix/bug-description` - Bug fix branches
-* `security/cve-id` - Security patches
+* `security/cve-id` - Security patches (highest priority)
 
 ### Workflow
 
-1. **Create a Feature Branch**
-   ```bash
-   git checkout -b feature/amazing-feature develop
-   ```
+#### 1. Create a Feature Branch
+```bash
+git checkout -b feature/sick-new-exploit develop
+```
 
-2. **Make Changes**
-   * Write code following [Coding Standards](#coding-standards)
-   * Add tests for new functionality
-   * Update documentation as needed
+#### 2. Make Changes
+* Write clean code (see [Coding Standards](#coding-standards))
+* Add tests - if you don't test your code, we won't merge it
+* Update documentation - if you change behavior, document it
 
-3. **Commit Changes**
-   ```bash
-   git add .
-   git commit -m "feat: add amazing feature"
-   ```
+#### 3. Commit Changes
+```bash
+git add .
+git commit -m "feat: add sick new exploit detection"
+```
 
-4. **Keep Your Branch Updated**
-   ```bash
-   git fetch upstream
-   git rebase upstream/develop
-   ```
+#### 4. Keep Your Branch Updated
+```bash
+git fetch upstream
+git rebase upstream/develop
+```
 
-5. **Push Changes**
-   ```bash
-   git push origin feature/amazing-feature
-   ```
+If you don't know how to resolve merge conflicts, learn. We won't do it for you.
 
-6. **Create Pull Request**
-   * Open a PR against the `develop` branch
-   * Fill out the PR template completely
-   * Link related issues
+#### 5. Push Changes
+```bash
+git push origin feature/sick-new-exploit
+```
+
+#### 6. Create Pull Request
+* Open a PR against `develop` branch
+* Fill out the template completely (don't half-ass it)
+* Link related issues
+* Wait for review
 
 ### Commit Message Guidelines
 
@@ -127,90 +136,94 @@ Follow [Conventional Commits](https://www.conventionalcommits.org/):
 ```
 
 **Types:**
-* `feat`: New feature
-* `fix`: Bug fix
-* `docs`: Documentation only
-* `style`: Code style changes (formatting, etc.)
-* `refactor`: Code refactoring
-* `perf`: Performance improvements
-* `test`: Adding or updating tests
-* `chore`: Build process or auxiliary tool changes
-* `security`: Security-related changes
+* `feat` - New feature
+* `fix` - Bug fix
+* `docs` - Documentation only
+* `style` - Code formatting (doesn't change functionality)
+* `refactor` - Code refactoring
+* `perf` - Performance improvements
+* `test` - Tests
+* `chore` - Build/tooling changes
+* `security` - Security fixes (mark these clearly)
 
 **Examples:**
 ```
-feat(api): add REST API endpoint for data queries
+feat(scanner): add multi-threaded port scanning
 
-Add new /api/query endpoint that allows filtering data
-by multiple criteria including date range and metadata.
+Implemented threaded TCP SYN scanner with configurable
+thread pool size. Reduces scan time by ~70% on gigabit networks.
 
 Closes #123
 ```
 
 ```
-fix(crypto): resolve memory leak in encryption manager
+fix(crypto): patch buffer overflow in AES decryption
 
-Fixed memory leak caused by improper cleanup of
-OpenSSL contexts in error paths.
-
-Fixes #456
-```
-
-```
-security(auth): patch authentication bypass vulnerability
-
-Implement proper token validation to prevent authentication
-bypass. This addresses a critical security issue where
-expired tokens were still being accepted.
+Fixed stack buffer overflow when decrypting malformed
+ciphertext. Added bounds checking and input validation.
 
 CVE-2025-XXXXX
+```
+
+```
+security(auth): close authentication bypass vulnerability
+
+Enforced token expiration validation. Previous implementation
+accepted expired tokens due to missing time check.
+
+Fixes #666
 ```
 
 ## Pull Request Process
 
 ### Before Submitting
 
-- [ ] Code follows project style guidelines
+Don't submit garbage. Check this list:
+
+- [ ] Code compiles without warnings
 - [ ] All tests pass
-- [ ] New tests added for new features
+- [ ] Added tests for new functionality
 - [ ] Documentation updated
 - [ ] Commit messages follow convention
-- [ ] No merge conflicts with develop branch
+- [ ] No merge conflicts with develop
 - [ ] Security implications considered
+- [ ] You actually tested it (not just compiled)
 
 ### PR Checklist
 
-1. **Title**: Clear, descriptive title
-2. **Description**: What, why, and how
-3. **Type**: Bug fix, feature, documentation, etc.
-4. **Testing**: How was it tested?
-5. **Screenshots**: For UI changes
-6. **Breaking Changes**: Note any breaking changes
-7. **Related Issues**: Link related issues
+Your PR better include:
+
+1. **Clear title** - "Fixed stuff" is not a title
+2. **Description** - What you changed, why, and how
+3. **Type** - Bug fix? Feature? Breaking change?
+4. **Testing** - How did you test it? "It compiled" is not testing.
+5. **Screenshots** - For UI changes
+6. **Breaking Changes** - Clearly marked if applicable
+7. **Related Issues** - Link them
 
 ### Review Process
 
-1. **Automated Checks**: CI/CD pipeline must pass
-2. **Code Review**: At least one maintainer approval required
-3. **Security Review**: Security-sensitive changes require additional review
-4. **Testing**: Reviewers may request additional tests
-5. **Documentation**: Reviewers may request documentation updates
+1. **Automated Checks** - CI/CD must pass (green checkmarks or GTFO)
+2. **Code Review** - Maintainer will review your code
+3. **Feedback** - Address feedback or defend your approach with logic
+4. **Security Review** - Security-sensitive changes get extra scrutiny
+5. **Merge** - If everything passes, we'll merge it
 
 ### Merge Requirements
 
-* All CI checks passing
+* All CI checks passing (obviously)
 * At least one approving review
 * No unresolved conversations
 * Up-to-date with target branch
-* Commit messages follow convention
+* Maintainer approval
 
 ## Coding Standards
 
 ### C++ Style
 
-Follow [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html) with modifications:
+We follow [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html) with modifications:
 
-* **Indentation**: 4 spaces (no tabs)
+* **Indentation**: 4 spaces (tabs are for psychopaths)
 * **Line Length**: 120 characters max
 * **Naming**:
   * Classes: `PascalCase`
@@ -242,20 +255,31 @@ private:
 
 ### Security Considerations
 
-* **Input Validation**: Always validate and sanitize input
-* **Error Handling**: Proper error handling, no exceptions in destructors
-* **Memory Safety**: Use RAII, smart pointers, avoid raw `new`/`delete`
-* **Thread Safety**: Document thread safety, use mutexes appropriately
-* **Cryptography**: Use established libraries (OpenSSL), never roll your own crypto
-* **Logging**: Log security events, avoid logging sensitive data
+This is a security tool. Act like it.
+
+* **Input Validation** - ALWAYS validate and sanitize input
+* **Error Handling** - Proper error handling, no exceptions in destructors
+* **Memory Safety** - Use RAII, smart pointers, avoid raw `new`/`delete`
+* **Thread Safety** - Document thread safety guarantees, use mutexes
+* **Cryptography** - Use OpenSSL. **NEVER** roll your own crypto (seriously, don't)
+* **Logging** - Log security events, **NEVER** log passwords/keys/sensitive data
 
 ### Code Quality
 
-* **Comments**: Explain *why*, not *what*
-* **Documentation**: Doxygen-style comments for public APIs
-* **Complexity**: Keep functions under 50 lines when possible
-* **DRY**: Don't Repeat Yourself
-* **SOLID**: Follow SOLID principles
+* **Comments** - Explain **WHY**, not **WHAT**. We can read code.
+* **Documentation** - Doxygen-style comments for public APIs
+* **Complexity** - Keep functions under 50 lines when possible
+* **DRY** - Don't Repeat Yourself
+* **SOLID** - Follow SOLID principles (Google them if you don't know)
+
+### What We Don't Want
+
+* Magic numbers (use constants)
+* God classes (huge classes that do everything)
+* Global variables (unless you have a damn good reason)
+* Copy-paste code (use functions)
+* Commented-out code (delete it, Git remembers)
+* "TODO" comments without issue numbers (create an issue)
 
 ## Testing Guidelines
 
@@ -296,17 +320,18 @@ TEST_F(NetworkScannerTest, ValidCIDR) {
     EXPECT_FALSE(results.empty());
 }
 
-TEST_F(NetworkScannerTest, InvalidCIDR) {
-    auto results = scanner->scanNetwork("invalid");
-    EXPECT_TRUE(results.empty());
+TEST_F(NetworkScannerTest, InvalidCIDRThrowsException) {
+    EXPECT_THROW(scanner->scanNetwork("invalid"), std::invalid_argument);
 }
 ```
 
 ### Test Coverage
 
-* **Minimum**: 70% code coverage
-* **Critical Paths**: 90%+ coverage for security-critical code
+* **Minimum**: 70% code coverage (we check this)
+* **Critical Paths**: 90%+ for security-critical code
 * **New Features**: 80%+ coverage required
+
+If your PR drops coverage, it better have a good explanation.
 
 ### Running Tests
 
@@ -317,7 +342,7 @@ make test
 # Specific test
 ./tests/unit/network_scanner_test
 
-# With coverage
+# With coverage report
 cmake -DENABLE_COVERAGE=ON ..
 make coverage
 ```
@@ -326,24 +351,24 @@ make coverage
 
 ### Code Documentation
 
-Use Doxygen format:
+Use Doxygen format for public APIs:
 
 ```cpp
 /**
  * @brief Scans a network for active hosts
  * 
- * Performs a TCP SYN scan on the specified CIDR range to identify
+ * Performs TCP SYN scan on specified CIDR range to identify
  * active hosts and open ports.
  * 
  * @param cidr Network range in CIDR notation (e.g., "192.168.1.0/24")
  * @param ports Port list to scan (default: common ports)
  * @param timeout Scan timeout in milliseconds (default: 1000)
- * @return Vector of scan results with discovered hosts and ports
+ * @return Vector of scan results with discovered hosts/ports
  * 
  * @throws std::invalid_argument if CIDR format is invalid
  * 
- * @note Requires administrator/root privileges
- * @warning May trigger IDS/IPS systems
+ * @note Requires administrator/root privileges for raw sockets
+ * @warning May trigger IDS/IPS systems - use responsibly
  * 
  * @example
  * NetworkScanner scanner;
@@ -357,19 +382,13 @@ std::vector<ScanResult> scanNetwork(const std::string& cidr,
                                      int timeout = 1000);
 ```
 
-### README Updates
-
-Update README.md for:
-* New features
-* Changed APIs
-* Updated requirements
-* New dependencies
-
 ### Documentation Files
+
+Update these when relevant:
 
 * `README.md` - Project overview
 * `docs/API_DOCUMENTATION.md` - API reference
-* `docs/WINDOWS_BUILD.md` - Windows build guide
+* `docs/WINDOWS_BUILD.md` - Windows build instructions
 * `docs/USER_MANUAL.md` - User manual
 * `CHANGELOG.md` - Version history
 
@@ -377,42 +396,44 @@ Update README.md for:
 
 ### Security-Sensitive Changes
 
-Changes affecting security require:
+If you're touching anything security-related, these requirements apply:
 
-1. **Threat Model**: Document potential threats
-2. **Risk Assessment**: Evaluate security impact
-3. **Security Review**: Additional review by security team
-4. **Testing**: Security-specific tests
-5. **Audit Logging**: Log security events
+1. **Threat Model** - Document what you're protecting against
+2. **Risk Assessment** - Evaluate security impact
+3. **Security Review** - Additional review required
+4. **Testing** - Security-specific tests mandatory
+5. **Audit Logging** - Log security events
 
 ### Reporting Vulnerabilities
 
-**DO NOT** create public issues for security vulnerabilities.
+**DO NOT** create public GitHub issues for security vulnerabilities.
 
-Email: lackadaisicalresearch@pm.me
+Email: **lackadaisicalresearch@pm.me**
 
-See [SECURITY.md](SECURITY.md) for details.
+See [SECURITY.md](SECURITY.md) for responsible disclosure process.
 
 ### Security Checklist
 
+Before submitting security-related changes:
+
 - [ ] Input validation implemented
 - [ ] Authentication/authorization checked
-- [ ] Encryption used for sensitive data
-- [ ] No hardcoded secrets
+- [ ] Encryption for sensitive data
+- [ ] No hardcoded secrets/credentials
 - [ ] SQL injection prevention
 - [ ] XSS prevention (if applicable)
 - [ ] CSRF protection (if applicable)
-- [ ] Security logging implemented
+- [ ] Security event logging
 
 ## Performance
 
 ### Performance Considerations
 
-* Profile before optimizing
+* Profile **BEFORE** optimizing (don't guess)
 * Document performance requirements
-* Include performance tests for critical paths
-* Avoid premature optimization
-* Consider memory usage
+* Include benchmarks for critical paths
+* Avoid premature optimization (make it work, then make it fast)
+* Consider memory usage (memory leaks will be rejected)
 
 ### Benchmarking
 
@@ -437,13 +458,11 @@ BENCHMARK(BM_NetworkScan);
 
 ### Creating a New Module
 
-1. **Interface**: Define in `include/modules/your_module.h`
-2. **Implementation**: Create in `src/modules/your_module/`
-3. **Registration**: Register with ModuleRegistry
-4. **Tests**: Add tests in `tests/modules/`
-5. **Documentation**: Document in README and user manual
-
-### Module Template
+1. **Interface** - Define in `include/modules/your_module.h`
+2. **Implementation** - Create in `src/modules/your_module/`
+3. **Registration** - Register with ModuleRegistry
+4. **Tests** - Add tests in `tests/modules/`
+5. **Documentation** - Document in README and manual
 
 See `docs/module-development.md` for detailed guide.
 
@@ -451,57 +470,69 @@ See `docs/module-development.md` for detailed guide.
 
 ### Schema Migrations
 
-1. **Version**: Increment schema version
-2. **Migration Script**: Create SQL migration
-3. **Backwards Compatibility**: Consider compatibility
-4. **Testing**: Test migration thoroughly
+If you change the database schema:
+
+1. **Version** - Increment schema version number
+2. **Migration Script** - Write SQL migration script
+3. **Backwards Compatibility** - Consider upgrade path
+4. **Testing** - Test migration with production-like data
+
+Don't break existing databases. People will be pissed.
 
 ## API Changes
 
 ### Breaking Changes
 
-* Increment major version
-* Document in CHANGELOG
+If you break the API:
+
+* Increment **major** version (semver)
+* Document in `CHANGELOG.md` with big warnings
 * Provide migration guide
-* Deprecation period (when possible)
+* Deprecation period if possible (give users time to update)
 
-### Adding Endpoints
+### Adding API Endpoints
 
-1. **Design**: RESTful design
-2. **Documentation**: Update API_DOCUMENTATION.md
-3. **Tests**: Add API tests
-4. **Examples**: Provide code examples
+1. **RESTful Design** - Follow REST conventions
+2. **Documentation** - Update `API_DOCUMENTATION.md`
+3. **Tests** - Add comprehensive API tests
+4. **Examples** - Provide working code examples
 
 ## Release Process
 
-1. **Version Bump**: Update version in CMakeLists.txt
-2. **Changelog**: Update CHANGELOG.md
-3. **Testing**: Full test suite
-4. **Documentation**: Verify documentation
-5. **Tag**: Create git tag
-6. **Release Notes**: Write release notes
-7. **Build**: Build release artifacts
-8. **Publish**: Publish to GitHub Releases
+(For maintainers - but good to know)
+
+1. **Version Bump** - Update version in `CMakeLists.txt`
+2. **Changelog** - Update `CHANGELOG.md`
+3. **Testing** - Full test suite passes
+4. **Documentation** - Verify all docs updated
+5. **Tag** - Create git tag (`v1.0.0`)
+6. **Release Notes** - Write detailed release notes
+7. **Build** - Build release artifacts
+8. **Publish** - Publish to GitHub Releases
 
 ## Questions?
 
 * **Email**: lackadaisicalresearch@pm.me
-* **GitHub Issues**: https://github.com/Lackadaisical-Security/SpectreMap/issues
+* **GitHub Issues**: https://github.com/Lackadaisical-Security/SpectreMap/issues (for bugs/features, NOT security)
 * **Discussions**: https://github.com/Lackadaisical-Security/SpectreMap/discussions
 
 ## Recognition
 
-Contributors will be recognized in:
-* CONTRIBUTORS.md
+Quality contributors get recognized in:
+* `CONTRIBUTORS.md`
 * Release notes
-* Project website (when available)
+* Project website (when it exists)
 
 ## License
 
 By contributing, you agree that your contributions will be licensed under the same license as the project. See [LICENSE](LICENSE) for details.
 
+You retain copyright to your contributions, but you grant us a perpetual license to use them.
+
 ---
 
-**Thank you for contributing to SpectreMap!**
+### 🔥 **Built by Lackadaisical Security** 🔥
+
+*"Code speaks louder than credentials. Merit over everything."*
 
 **Copyright © 2025 Lackadaisical Security. All rights reserved.**
