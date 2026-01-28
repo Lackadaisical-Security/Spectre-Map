@@ -23,6 +23,16 @@
 ---
 </div>
 
+## 🎯 Overview
+
+SpectreMap is a bare-metal optimized, real-time, interactive visual reconnaissance and intelligence-mapping platform. Built for red teams, cyber intelligence agents, digital operatives, and OPSEC-driven professionals, it overlays signals, behavioral anomalies, and terrain data into a responsive, multi-spectral dashboard.
+
+The core philosophy is **tactical omnipresence through precision visualization** — creating an immersive environment where digital and physical threats can be seen, mapped, and neutralized before they manifest.
+
+> *"You don't need eyes when you've got SpectreMap. You see the enemy before they even know you're watching."*
+
+---
+
 ## 🆕 Recent Production Improvements (January 2025)
 
 ### **Production-Grade Code Implementation**
@@ -97,16 +107,6 @@ SpectreMap has undergone comprehensive enhancements to achieve production-ready 
 For detailed technical information, see:
 - [ASM Architecture Notes](asm/ARCHITECTURE_NOTES.md) - Assembly integration details
 - [AI/ML Implementation](AI_ML_IMPLEMENTATION.md) - Neural network models and training
-
----
-
-## 🎯 Overview
-
-SpectreMap is a bare-metal optimized, real-time, interactive visual reconnaissance and intelligence-mapping platform. Built for red teams, cyber intelligence agents, digital operatives, and OPSEC-driven professionals, it overlays signals, behavioral anomalies, and terrain data into a responsive, multi-spectral dashboard.
-
-The core philosophy is **tactical omnipresence through precision visualization** — creating an immersive environment where digital and physical threats can be seen, mapped, and neutralized before they manifest.
-
-> *"You don't need eyes when you've got SpectreMap. You see the enemy before they even know you're watching."*
 
 ---
 
@@ -861,4 +861,5 @@ See [LICENSE](LICENSE) file for complete terms and conditions.
 
 *Built with precision, secured by design, deployed for professionals.*  
 *Copyright © 2025 Lackadaisical Security. All rights reserved.*
+
 
