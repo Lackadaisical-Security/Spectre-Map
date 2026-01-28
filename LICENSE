@@ -1,0 +1,165 @@
+SPECTREMAPTM SOFTWARE LICENSE AGREEMENT
+
+SpectreMap - Visual Reconnaissance & Threat Terrain Mapper
+Copyright © 2025 Lackadaisical Security. All rights reserved.
+
+IMPORTANT - READ CAREFULLY: This Software License Agreement ("Agreement") is a legal 
+agreement between you (either an individual or a single entity) and Lackadaisical 
+Security ("Licensor") for the SpectreMap software product ("Software"), which includes 
+computer software and may include associated media, printed materials, and online or 
+electronic documentation.
+
+BY INSTALLING, COPYING, OR OTHERWISE USING THE SOFTWARE, YOU AGREE TO BE BOUND BY THE 
+TERMS OF THIS AGREEMENT. IF YOU DO NOT AGREE TO THE TERMS OF THIS AGREEMENT, DO NOT 
+INSTALL, COPY, OR USE THE SOFTWARE.
+
+1. GRANT OF LICENSE
+
+Subject to the terms and conditions of this Agreement, Licensor hereby grants you a 
+limited, non-exclusive, non-transferable license to:
+
+a) Install and use the Software on a single computer or workstation;
+b) Make one copy of the Software for backup purposes only;
+c) Use the Software solely for authorized cybersecurity testing and research purposes.
+
+2. RESTRICTIONS
+
+You may NOT:
+
+a) Distribute, rent, lease, lend, or sublicense the Software to any third party;
+b) Reverse engineer, decompile, disassemble, or otherwise attempt to derive the source 
+   code of the Software;
+c) Remove or alter any proprietary notices, labels, or marks on the Software;
+d) Use the Software for any illegal or unauthorized purpose;
+e) Use the Software to conduct unauthorized network scanning, penetration testing, or 
+   security assessments without proper legal authorization;
+f) Transfer or assign this license without prior written consent from Licensor.
+
+3. AUTHORIZED USE
+
+The Software is designed for professional cybersecurity purposes and may only be used by:
+
+a) Authorized security professionals conducting legitimate security testing;
+b) Organizations with explicit written permission to test their own systems;
+c) Educational institutions for cybersecurity research and training;
+d) Government agencies for official cybersecurity operations.
+
+Users must obtain all necessary legal authorizations before conducting any form of 
+network reconnaissance, penetration testing, or security assessment using this Software.
+
+4. INTELLECTUAL PROPERTY
+
+The Software and all intellectual property rights therein are and remain the exclusive 
+property of Licensor. This Agreement does not grant you any rights to trademarks, 
+service marks, or trade names of Licensor.
+
+5. CONFIDENTIALITY
+
+The Software contains confidential and proprietary information of Licensor. You agree 
+to maintain the confidentiality of such information and not to disclose it to any 
+third party without prior written consent from Licensor.
+
+6. SUPPORT AND UPDATES
+
+Licensor may, but is not obligated to, provide technical support, updates, or 
+enhancements to the Software. Any such support or updates will be subject to the 
+terms of this Agreement.
+
+7. WARRANTY DISCLAIMER
+
+THE SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND. LICENSOR DISCLAIMS ALL 
+WARRANTIES, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES 
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+
+8. LIMITATION OF LIABILITY
+
+IN NO EVENT SHALL LICENSOR BE LIABLE FOR ANY INDIRECT, SPECIAL, INCIDENTAL, OR 
+CONSEQUENTIAL DAMAGES ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF 
+THE SOFTWARE, EVEN IF LICENSOR HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+LICENSOR'S TOTAL LIABILITY FOR ALL CLAIMS RELATED TO THE SOFTWARE SHALL NOT EXCEED 
+THE AMOUNT PAID BY YOU FOR THE SOFTWARE LICENSE.
+
+9. INDEMNIFICATION
+
+You agree to indemnify, defend, and hold harmless Licensor from and against any and 
+all claims, damages, losses, costs, and expenses (including reasonable attorneys' fees) 
+arising from or relating to your use of the Software or violation of this Agreement.
+
+10. LEGAL COMPLIANCE
+
+You acknowledge that the Software may be subject to export control laws and regulations. 
+You agree to comply with all applicable laws and regulations regarding the export, 
+re-export, or import of the Software.
+
+You represent and warrant that:
+a) You are not located in a country that is subject to U.S. government embargo;
+b) You are not listed on any U.S. government list of prohibited or restricted parties;
+c) You will use the Software only for lawful purposes and in compliance with all 
+   applicable laws and regulations.
+
+11. TERMINATION
+
+This Agreement is effective until terminated. Your rights under this Agreement will 
+terminate automatically without notice if you fail to comply with any term of this 
+Agreement. Upon termination, you must cease all use of the Software and destroy all 
+copies of the Software in your possession.
+
+12. GOVERNING LAW
+
+This Agreement shall be governed by and construed in accordance with the laws of the 
+jurisdiction in which Licensor is incorporated, without regard to its conflict of law 
+provisions.
+
+13. ENTIRE AGREEMENT
+
+This Agreement constitutes the entire agreement between you and Licensor concerning the 
+Software and supersedes all prior or contemporaneous agreements, whether written or oral.
+
+14. CONTACT INFORMATION
+
+For questions regarding this license or to request permissions beyond the scope of this 
+license, please contact:
+
+Lackadaisical Security
+Website: https://lackadaisical-security.com
+Email: sales@lackadaisical-security.com
+
+15. ACKNOWLEDGMENT
+
+By using the Software, you acknowledge that you have read this Agreement, understand 
+it, and agree to be bound by its terms and conditions.
+
+---
+
+PROFESSIONAL USE NOTICE
+
+SpectreMap is a professional-grade cybersecurity tool designed for use by qualified 
+security professionals. The capabilities provided by this Software should only be used:
+
+• With explicit written authorization from system owners
+• In compliance with applicable laws and regulations
+• Following established ethical hacking and responsible disclosure practices
+• With proper documentation and approval from relevant authorities
+
+Unauthorized use of this Software may violate federal, state, or local laws and could 
+result in severe civil and criminal penalties.
+
+---
+
+COPYRIGHT NOTICE
+
+SpectreMap™, the SpectreMap logo, and all related marks are trademarks of Lackadaisical 
+Security. All other trademarks are the property of their respective owners.
+
+This Software contains proprietary algorithms, methodologies, and techniques developed 
+by Lackadaisical Security. Any attempt to reverse engineer, copy, or reproduce these 
+proprietary elements is strictly prohibited and may result in legal action.
+
+---
+
+SOFTWARE VERSION: 0.1.0
+LICENSE VERSION: 1.0
+EFFECTIVE DATE: June 6, 2025
+
+© 2025 Lackadaisical Security. All rights reserved. 
