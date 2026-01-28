@@ -1,135 +1,159 @@
 # Code of Conduct
 
-## Our Pledge
+## Philosophy
 
-We as members, contributors, and leaders of the SpectreMap project pledge to make participation in our community a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, caste, color, religion, or sexual identity and orientation.
+SpectreMap is built on a foundation of **technical excellence, meritocracy, and logic**. This project operates under old-school hacker ethics from the leet era: your code speaks louder than anything else. If you can contribute quality work, prove your technical skill, and operate with integrity, you're in.
 
-We pledge to act and interact in ways that contribute to an open, welcoming, diverse, inclusive, and healthy community focused on advancing cybersecurity research and defensive security operations.
+**No politics. No bullshit. Just code.**
 
-## Our Standards
+## Core Principles
 
-### Examples of behavior that contributes to a positive environment:
+### 1. Merit is King
+- **Your contributions are judged by technical merit only** - clean code, innovative solutions, working exploits, documented features
+- Skill level doesn't matter if you're willing to learn and improve
+- Show your work. Explain your logic. Defend your implementation with evidence
+- If your pull request gets rejected, it's because the code isn't up to standard - fix it and resubmit
 
-* Demonstrating empathy and kindness toward other people
-* Being respectful of differing opinions, viewpoints, and experiences
-* Giving and gracefully accepting constructive feedback
-* Accepting responsibility and apologizing to those affected by our mistakes, and learning from the experience
-* Focusing on what is best not just for us as individuals, but for the overall community
-* Using welcoming and inclusive language
-* Being respectful of differing skill levels and learning processes
-* Providing credit and acknowledgment for others' contributions
-* Supporting ethical use of security tools and responsible disclosure practices
+### 2. Technical Competence Over Everything
+- Know what you're talking about or shut up
+- Research before you ask questions - RTFM (Read The Fucking Manual)
+- Google is your friend. So is man pages. Use them
+- If you claim something is broken, provide logs, stack traces, and reproduction steps
+- "It doesn't work" is not a bug report
 
-### Examples of unacceptable behavior:
+### 3. Intellectual Honesty
+- Don't plagiarize code. Give credit where it's due
+- If you don't know something, say so - nobody expects you to know everything
+- Admit when you're wrong and learn from it
+- Document your code properly - other people need to understand what you built
 
-* The use of sexualized language or imagery, and sexual attention or advances of any kind
-* Trolling, insulting or derogatory comments, and personal or political attacks
-* Public or private harassment
-* Publishing others' private information, such as a physical or email address, without their explicit permission
-* Promoting or encouraging illegal activities, including unauthorized access to computer systems
-* Sharing or discussing exploits without proper coordination with affected parties
-* Using SpectreMap or related tools for malicious purposes
-* Conducting offensive security testing without proper authorization
-* Other conduct which could reasonably be considered inappropriate in a professional setting
+### 4. Hacker Ethics (Classic)
+- **Access to computers should be unlimited and total** - but you better have authorization
+- **All information should be free** - but stealing credentials/data isn't "liberation," it's theft
+- **Mistrust authority – promote decentralization** - but follow the law where it matters
+- **You can create art and beauty on a computer** - make elegant code, not bloated garbage
+- **Computers can change your life for the better** - build tools that matter
 
-## Ethical Use Policy
+## What We Expect
 
-As a cybersecurity tool, SpectreMap must be used responsibly and ethically:
+### Technical Standards
+- Write clean, documented, maintainable code
+- Follow the existing code style (use clang-format, check the style guide)
+- Test your shit before you submit it
+- Security vulnerabilities get fixed ASAP - no excuses
+- Performance matters - don't submit code that runs like a drunk turtle
 
-### Authorized Use Only
-* Obtain written authorization before conducting any reconnaissance or security testing
-* Respect scope limitations and rules of engagement
-* Comply with all applicable laws and regulations (CFAA, GDPR, CCPA, etc.)
-* Follow responsible disclosure practices for discovered vulnerabilities
+### Communication Standards
+- Be direct and honest - no passive-aggressive nonsense
+- Technical criticism is not personal - don't take it personally
+- If someone's code sucks, explain WHY and HOW to fix it
+- Argue about technical solutions, not personalities
+- Keep discussions on-topic and focused on the problem
+
+### Collaboration Standards
+- Review others' code honestly - don't rubber-stamp garbage
+- Respond to feedback constructively - defend your approach with logic
+- Share knowledge when asked - the community grows when experts teach
+- If you promise to deliver something, deliver it or say you can't
+
+## What We Don't Tolerate
+
+### Hard Bans (Instant Removal)
+- **Using SpectreMap for unauthorized/illegal access** - we're not covering your ass in court
+- **Doxxing, harassment, or stalking** - this is a technical project, not a drama club
+- **Stealing code and claiming it as your own** - plagiarism is for script kiddies
+- **Sharing 0-days publicly without coordinated disclosure** - don't burn the ecosystem
+- **Spamming, trolling for the sake of trolling** - take it to 4chan
+- **Deliberately introducing backdoors or malicious code** - you'll be reported to authorities
+
+### Soft Bans (Warning → Kick)
+- Repeatedly submitting low-quality code despite feedback
+- Arguing without technical basis ("I think X is better" - cool, prove it with benchmarks)
+- Not following contribution guidelines after being told multiple times
+- Wasting maintainers' time with obvious questions covered in documentation
+
+### What's NOT a Violation
+- Using "offensive" language in technical discussions - we're adults, grow thicker skin
+- Disagreeing strongly with design decisions - if you have a better solution, show it
+- Calling out bad code - that's literally what code review is for
+- Being blunt or direct - we value efficiency over hand-holding
+- Memes, jokes, and hacker culture references - this is part of the tradition
+
+## Legal & Ethical Use
+
+### Authorized Use Requirements
+This is not negotiable. **You MUST:**
+- Obtain **written authorization** before using SpectreMap for any reconnaissance/pentesting
+- Comply with all applicable laws (CFAA, GDPR, computer crime statutes, export controls)
+- Follow responsible disclosure (90-day disclosure timeline is standard)
+- Respect scope limitations - don't go rogue on engagements
 
 ### Prohibited Activities
-* Unauthorized access to computer systems or networks
-* Criminal activities or cyber espionage
-* Privacy violations or illegal surveillance
-* Harassment or stalking
-* Data theft or exfiltration
-* Denial of service attacks without authorization
+You will be banned and potentially reported if you:
+- Conduct unauthorized access to systems ("hacking" without permission)
+- Use SpectreMap for criminal activities, espionage, or malicious purposes
+- Steal data, exfiltrate credentials, or conduct DoS attacks without authorization
+- Violate export control laws (see EXPORT_CONTROLS_COMPLIANCE.md)
+- Burn researchers by releasing exploits irresponsibly
 
-### Security Research
-* Coordinate with affected parties before public disclosure
-* Provide adequate time for remediation (typically 90 days)
-* Avoid causing harm or disruption during research
-* Share findings constructively to improve security
-
-## Enforcement Responsibilities
-
-Project maintainers are responsible for clarifying and enforcing our standards of acceptable behavior and will take appropriate and fair corrective action in response to any behavior that they deem inappropriate, threatening, offensive, or harmful.
-
-Project maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct, and will communicate reasons for moderation decisions when appropriate.
-
-## Scope
-
-This Code of Conduct applies within all community spaces, and also applies when an individual is officially representing the community in public spaces. Examples of representing our community include using an official e-mail address, posting via an official social media account, or acting as an appointed representative at an online or offline event.
-
-This Code of Conduct also applies to the use of SpectreMap software in any context, whether in professional, research, or educational settings.
+**If you get arrested for doing dumb shit with this tool, you're on your own.**
 
 ## Enforcement
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community leaders responsible for enforcement at:
+### Who Enforces
+Project maintainer (Lackadaisical Security) has final say on all decisions. This is not a democracy.
 
-**Email**: lackadaisicalresearch@pm.me
+### How to Report Issues
+- **Technical bugs**: Open a GitHub issue with full reproduction steps
+- **Security vulnerabilities**: Email lackadaisicalresearch@pm.me (PGP preferred)
+- **Code of conduct violations**: Email lackadaisicalresearch@pm.me with evidence
+- **Illegal use**: Report to appropriate law enforcement, cc us if relevant
 
-All complaints will be reviewed and investigated promptly and fairly. All community leaders are obligated to respect the privacy and security of the reporter of any incident.
+### Consequences
+1. **First offense**: Warning via email/issue comment - fix the problem
+2. **Second offense**: Temporary ban (duration depends on severity)
+3. **Third offense / Severe violations**: Permanent ban from project
+4. **Criminal activity**: Reported to authorities, permanent ban, legal action if applicable
 
-## Enforcement Guidelines
-
-Community leaders will follow these Community Impact Guidelines in determining the consequences for any action they deem in violation of this Code of Conduct:
-
-### 1. Correction
-
-**Community Impact**: Use of inappropriate language or other behavior deemed unprofessional or unwelcome in the community.
-
-**Consequence**: A private, written warning from community leaders, providing clarity around the nature of the violation and an explanation of why the behavior was inappropriate. A public apology may be requested.
-
-### 2. Warning
-
-**Community Impact**: A violation through a single incident or series of actions.
-
-**Consequence**: A warning with consequences for continued behavior. No interaction with the people involved, including unsolicited interaction with those enforcing the Code of Conduct, for a specified period of time. This includes avoiding interactions in community spaces as well as external channels like social media. Violating these terms may lead to a temporary or permanent ban.
-
-### 3. Temporary Ban
-
-**Community Impact**: A serious violation of community standards, including sustained inappropriate behavior, use of tools for malicious purposes, or encouraging illegal activities.
-
-**Consequence**: A temporary ban from any sort of interaction or public communication with the community for a specified period of time. No public or private interaction with the people involved, including unsolicited interaction with those enforcing the Code of Conduct, is allowed during this period. Violating these terms may lead to a permanent ban.
-
-### 4. Permanent Ban
-
-**Community Impact**: Demonstrating a pattern of violation of community standards, including sustained inappropriate behavior, harassment of an individual, or aggression toward or disparagement of classes of individuals. Use of SpectreMap for unauthorized access, criminal activities, or other serious violations.
-
-**Consequence**: A permanent ban from any sort of public interaction within the community and removal of contribution rights.
+### Appeals
+If you think you were banned unfairly, email with a technical explanation of why. If you can't defend your position logically, the ban stands.
 
 ## Attribution
 
-This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 2.1, available at [https://www.contributor-covenant.org/version/2/1/code_of_conduct.html][v2.1].
+This Code of Conduct is **NOT** based on Contributor Covenant or any corporate DEI template.
 
-Community Impact Guidelines were inspired by [Mozilla's code of conduct enforcement ladder][Mozilla CoC].
+This is based on:
+- **Hacker Ethic** (Steven Levy, 1984)
+- **Jargon File / Hacker's Dictionary** (Eric S. Raymond)
+- **Old-school IRC/BBS culture** (pre-2010 internet)
+- **Meritocratic principles** of technical communities
 
-For answers to common questions about this code of conduct, see the FAQ at [https://www.contributor-covenant.org/faq][FAQ]. Translations are available at [https://www.contributor-covenant.org/translations][translations].
+## Philosophy: Why This Approach?
 
-[homepage]: https://www.contributor-covenant.org
-[v2.1]: https://www.contributor-covenant.org/version/2/1/code_of_conduct.html
-[Mozilla CoC]: https://github.com/mozilla/diversity
-[FAQ]: https://www.contributor-covenant.org/faq
-[translations]: https://www.contributor-covenant.org/translations
+SpectreMap is a **professional offensive security tool**, not a social club. The stakes are high:
+- Users can go to prison if they misuse this tool
+- Bad code can lead to operational failures in live engagements
+- Security vulnerabilities can compromise entire networks
+- Export control violations carry criminal penalties
 
-## Legal Disclaimer
+**We need contributors who:**
+- Take this seriously
+- Can handle direct technical criticism
+- Prioritize working code over feelings
+- Understand the legal and ethical implications
 
-The developers and maintainers of SpectreMap assume no liability for misuse, unauthorized use, or any damages resulting from the use of this software. Users are solely responsible for ensuring their use complies with all applicable laws and regulations.
+If you're looking for a "safe space" where your code doesn't get criticized, this isn't it. If you want to build cutting-edge security tools with people who care about technical excellence, welcome aboard.
 
 ## Contact
 
-For questions or concerns about this Code of Conduct:
-
-* **Email**: lackadaisicalresearch@pm.me
-* **Website**: https://lackadaisical-security.com
-* **GitHub**: https://github.com/Lackadaisical-Security
+**Maintainer**: Lackadaisical Security  
+**Email**: lackadaisicalresearch@pm.me  
+**XMPP+OTR**: thelackadaisicalone@xmpp.jp  
+**Website**: https://lackadaisical-security.com  
+**GitHub**: https://github.com/Lackadaisical-Security
 
 ---
+
+**TL;DR**: Be competent. Be honest. Don't be a criminal. Don't waste our time. Code quality matters more than your identity.
 
 **Copyright © 2025 Lackadaisical Security. All rights reserved.**
