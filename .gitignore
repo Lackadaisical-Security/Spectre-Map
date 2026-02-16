@@ -134,6 +134,17 @@ venv.bak/
 *.out
 *.app
 
+# Build directories
+build/
+build_*/
+dist/
+dist_*/
+
+# Allow standalone installers in releases/ directory
+!releases/*.exe
+!releases/*.msi
+!releases/*.zip
+
 # === Build Systems ===
 # CMake
 CMakeLists.txt.user
@@ -141,7 +152,7 @@ CMakeCache.txt
 CMakeFiles/
 CMakeScripts/
 Testing/
-Makefile
+# Makefile - kept in repo
 cmake_install.cmake
 install_manifest.txt
 compile_commands.json
@@ -151,7 +162,7 @@ _deps/
 # Make
 *.make
 *.makefile
-Makefile
+# Makefile - kept in repo
 makefile
 
 # Autotools
@@ -415,3 +426,8 @@ backup_*/
 *.rar
 
 # === End of .gitignore ===
+.env
+*.o
+resources/web/images/*.bmp
+build/
+dist/
