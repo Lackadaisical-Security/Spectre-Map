@@ -2,7 +2,7 @@
 
 ## Current State
 
-This folder contains 136 assembly files that provide low-level functionality for SpectreMap including cryptography, anti-analysis, memory protection, and obfuscation.
+This folder contains 261 assembly files that provide low-level functionality for SpectreMap including cryptography, anti-analysis, memory protection, and obfuscation.
 
 ## Architecture Support
 
@@ -17,6 +17,24 @@ The following files have optimized versions for both architectures:
 | `secure_random.asm` | `secure_random_x64.asm` | Random number generation |
 | `secure_prng.asm` | `secure_prng_x64.asm` | Pseudo-random generator |
 | `secure_memory.asm` | `secure_memory_x64.asm` | Memory protection |
+| `polymorphic_stub.asm` | `polymorphic_stub_x64.asm` | Polymorphic decryption stub |
+| `virtualization_stub.asm` | `virtualization_stub_x64.asm` | VM-based protection stub |
+| `metamorphic_stub.asm` | `metamorphic_stub_x64.asm` | Metamorphic self-modifying stub |
+| `advanced_stub.asm` | `advanced_stub_x64.asm` | Advanced stub with anti-debug/anti-VM |
+| `quantum_crypto.asm` | `quantum_crypto_x64.asm` | Quantum-resistant cryptography (Kyber/NTRU/SPHINCS+) |
+| `ultra_encryption.asm` | `ultra_encryption_x64.asm` | 15-layer hybrid encryption (30 algorithms) |
+| `homomorphic_crypto.asm` | `homomorphic_crypto_x64.asm` | Homomorphic encryption (BFV/TFHE) |
+| `metamorphic_engine.asm` | `metamorphic_engine_x64.asm` | Metamorphic code transformation engine |
+| `antidebug.asm` | `antidebug_x64.asm` | Anti-debugging detection (INT3, SEH, HW breakpoints) |
+| `extreme_anti_analysis.asm` | `extreme_anti_analysis_x64.asm` | VM/debugger detection (CPUID, RDTSC, IDT/GDT) |
+| `standalone_crypto.asm` | `standalone_crypto_x64.asm` | Full crypto suite (SHA-256, HMAC, PBKDF2, AES-256-CTR, RDRAND) |
+| `self_modifying_code.asm` | `self_modifying_code_x64.asm` | SMC engine (code gen, metamorphic transform, integrity verify) |
+| `pqc_obfuscation.asm` | `pqc_obfuscation_x64.asm` | PQC obfuscation (instruction decoder, metamorphic, code VM) |
+| `hsm_integration.asm` | `hsm_integration_x64.asm` | HSM hardware (TPM 2.0, YubiKey, NitroKey, AES-NI) |
+| `zk_proofs.asm` | `zk_proofs_x64.asm` | Zero-knowledge proofs (Lyubashevsky, Fiat-Shamir) |
+| `kyber_nist.asm` | `kyber_nist_x64.asm` | ML-KEM Kyber-768 (NTT, Barrett, CBD, keygen/encap/decap) |
+| `post_quantum.asm` | `post_quantum_x64.asm` | Post-quantum crypto (Kyber KEM, NTRU, NTT/INTT) |
+| `crypto_hooks.asm` | `crypto_hooks_x64.asm` | Crypto monitoring hooks (timing, hook table, stats) |
 
 ### Large Multi-Algorithm Files (32-bit registers)
 
@@ -48,8 +66,7 @@ These large files currently use 32-bit registers (`eax`, `ebx`, `esp`, `ebp`) an
 When building for x64 (most modern systems):
 - Uses all x64-specific files (`*_x64.asm`)
 - Includes all other 130+ files (they compile with 64-bit object format)
-- 32-bit-only files (`aes_gcm.asm`, `main.asm`, `encryption.asm`, etc.) are **excluded**
-- Large files with 32-bit registers work through format conversion
+- 32-bit-only files (`aes_gcm.asm`, `main.asm`, `encryption.asm`, etc.) are **excluded** when x64 variant exists
 
 ### 32-bit Builds
 When building for x86:
@@ -87,35 +104,6 @@ Consider creating 64-bit versions of large files:
    - Extended register usage
    - Modern instruction support
 
-### Code Cleanup Opportunities
-
-The large files mentioned above may contain:
-- Multiple implementations of similar algorithms
-- Redundant code paths
-- Unused or experimental code
-- Comments about "in real implementation" or "simplified"
-
-Consider:
-1. Profiling to identify hot paths
-2. Removing unused algorithm variants
-3. Consolidating similar implementations
-4. Adding proper function documentation
-
-## Current Limitations
-
-### 32-bit-Only Features
-The following features are currently 32-bit only:
-- `main.asm` - CLI interface (not critical for library use)
-- Some legacy algorithm implementations
-
-### Not Currently Compiled on 64-bit
-These files exist but are excluded from 64-bit builds:
-- `aes_gcm.asm` (use `aes_gcm_x64.asm` instead)
-- `main.asm` (CLI tool, not needed for library)
-- `encryption.asm` (use `encryption_x64.asm` instead)
-- `secure_random.asm` (use `secure_random_x64.asm` instead)
-- `secure_prng.asm` (use `secure_prng_x64.asm` instead)
-
 ## Testing
 
 To verify ASM files compile correctly:
@@ -135,19 +123,31 @@ cmake --build . 2>&1 | grep "ASM:"
 ## Future Work
 
 ### Priority 1: Create 64-bit Versions
-- [ ] `quantum_crypto_x64.asm`
-- [ ] `ultra_encryption_x64.asm`
-- [ ] `homomorphic_crypto_x64.asm`
-- [ ] `metamorphic_engine_x64.asm`
+- [x] `polymorphic_stub_x64.asm`
+- [x] `virtualization_stub_x64.asm`
+- [x] `metamorphic_stub_x64.asm`
+- [x] `advanced_stub_x64.asm`
+- [x] `quantum_crypto_x64.asm` (1,330 lines, Kyber NTT optimized)
+- [x] `ultra_encryption_x64.asm` (925 lines, 15-layer dispatch table)
+- [x] `homomorphic_crypto_x64.asm` (1,407 lines, BFV + TFHE schemes)
+- [x] `metamorphic_engine_x64.asm` (1,213 lines, xoshiro256** RNG)
+- [x] `standalone_crypto_x64.asm` (1,490 lines, SHA-256/HMAC/PBKDF2/AES-256-CTR)
+- [x] `self_modifying_code_x64.asm` (901 lines, SMC engine + metamorphic)
+- [x] `extreme_anti_analysis_x64.asm` (803 lines, CPUID/RDTSC/IDT/GDT VM detection)
+- [x] `antidebug_x64.asm` (372 lines, timing/BP/INT3 detection)
+- [x] `pqc_obfuscation_x64.asm` (1,126 lines, instruction decoder/metamorphic/VM)
+- [x] `hsm_integration_x64.asm` (989 lines, TPM 2.0/YubiKey/NitroKey/AES-NI)
+- [x] `zk_proofs_x64.asm` (659 lines, Lyubashevsky ZKP/Fiat-Shamir)
+- [x] `kyber_nist_x64.asm` (794 lines, ML-KEM NTT/INTT/Barrett/CBD)
 
 ### Priority 2: Code Cleanup
-- [ ] Remove redundant algorithms from large files
-- [ ] Optimize hot code paths
-- [ ] Add comprehensive function documentation
-- [ ] Create unit tests for critical functions
+- [x] Optimize hot code paths
+- [x] Add comprehensive function documentation
+- [x] Create unit tests for critical functions
 
 ### Priority 3: Architecture Expansion
-- [ ] More ARM64 implementations
+- [x] More ARM64 implementations
+- [x] All remaining missing x64 asm files custom coded - 
 - [ ] RISC-V support consideration
 - [ ] Apple Silicon optimizations
 
@@ -156,4 +156,4 @@ cmake --build . 2>&1 | grep "ASM:"
 - NASM handles object format conversion automatically
 - 32-bit register code works on 64-bit systems but may be less efficient
 - The current implementation prioritizes functionality over optimal performance
-- All 136 files can be compiled and linked successfully
+- All 261 files can be compiled and linked successfully
