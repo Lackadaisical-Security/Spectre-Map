@@ -8,9 +8,9 @@
   
 *Professional-grade cybersecurity reconnaissance platform for authorized security testing*
 
-**Version 1.1.0-alpha** | **Copyright © 2025-2026 Lackadaisical Security**
+**Version 1.1.4-alpha** | **Copyright © 2025-2026 Lackadaisical Security**
 
-[![Version](https://img.shields.io/badge/version-1.1.0--alpha-blue.svg)](https://github.com/Lackadaisical-Security/SpectreMap)
+[![Version](https://img.shields.io/badge/version-1.1.4--alpha-blue.svg)](https://github.com/Lackadaisical-Security/SpectreMap)
 [![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)]()
 
@@ -22,6 +22,35 @@
 
 ---
 </div>
+
+## 📸 Screenshots
+
+All 20 dashboard panels — live captures from the running server.
+
+| Panel | Preview |
+|-------|---------|
+| **📊 Overview** | ![Overview](https://github.com/user-attachments/assets/9cfe1b84-a792-498e-bfed-6f83e53055f1) |
+| **🧩 Modules Hub** | ![Modules](https://github.com/user-attachments/assets/ed5c839a-f25a-40bf-b20d-c8da04325910) |
+| **🔍 NetSpectre** | ![Scanner](https://github.com/user-attachments/assets/fc4551d8-942f-45b6-9f01-92698e6ebfac) |
+| **📡 SignalScope** | ![SignalScope](https://github.com/user-attachments/assets/3c635d91-8c5f-4bb3-ad6c-973c8fbdfc3a) |
+| **🕳️ Dark Terrain** | ![Dark Terrain](screenshots/ss-dark-terrain.png) |
+| **👁️ Retinal Interface** | ![Retinal](screenshots/ss-retinal.png) |
+| **⚠️ ThreatSig DNA** | ![Threats](screenshots/ss-05-threats.png) |
+| **🔬 Forensic Replay** | ![Forensic](https://github.com/user-attachments/assets/e8125ad7-cd1c-4442-9b8b-d59e599c9c15) |
+| **📦 Packet Analyzer** | ![Packet Analyzer](https://github.com/user-attachments/assets/d638ffd0-333b-4374-a0bb-74134ffcf3be) |
+| **🌍 OSINT Connector** | ![OSINT](screenshots/ss-07-osint.png) |
+| **🛰️ Satellite Sync** | ![Satellite](screenshots/ss-satellite.png) |
+| **🤖 AI/ML** | ![AI/ML](screenshots/ss-08-aiml.png) |
+| **💬 AI Chat** | ![AI Chat](screenshots/ss-09-aichat.png) |
+| **📚 Collections** | ![Collections](screenshots/ss-02-collections.png) |
+| **📝 Activity Log** | ![Activity Log](screenshots/ss-10-activitylog.png) |
+| **📈 Performance** | ![Performance](screenshots/ss-11-performance.png) |
+| **🔐 Crypto** | ![Crypto](screenshots/ss-12-crypto.png) |
+| **🌐 Network** | ![Network](screenshots/ss-13-network.png) |
+| **🗺️ GeoIP** | ![GeoIP](https://github.com/user-attachments/assets/b4595a68-0e4d-486f-bc85-bc59c697b9c4) |
+| **⚙️ Settings** | ![Settings](https://github.com/user-attachments/assets/67585d41-b9ea-4520-bb60-771293af9387) |
+
+---
 
 ## 🎯 Overview
 
@@ -36,17 +65,175 @@ The core philosophy is **tactical omnipresence through precision visualization**
 | Category | Details |
 |----------|---------|
 | **Build System** | MinGW64/GCC + NASM, self-contained Win32 API (no external DLLs), WiX 3.14 MSI installer |
-| **AI/ML** | 20 TensorFlow models (train locally, ≥99% accuracy), Ollama chat assistant, real-time inference |
-| **Assembly** | 154 total ASM files (130 x86-32, 24 x86-64), AES-NI, NTT, Kyber KEM, NTRU, ZK proofs |
+| **AI/ML** | 20 TensorFlow models (train locally, ≥99% accuracy), Ollama chat assistant, real-time inference, SIMD-accelerated NN primitives |
+| **Assembly** | 261 total ASM files (130 x86-32, 131 x86-64), AES-NI, NTT, Kyber KEM, NTRU, ZK proofs, AVX2 neural net inference |
 | **OSINT** | VirusTotal, IPinfo, AbuseIPDB, Hunter.io, Shodan — auto-detect query type |
-| **Network** | Tor SOCKS5 native integration, stealth scanning, SDR/SIGINT analysis |
-| **Dashboard** | 10-panel web UI (Overview, Scanner, Signals, Threats, OSINT, AI/ML, AI Chat, Modules, Collections, Logs) |
+| **Network** | Tor SOCKS5 native integration, stealth scanning, SDR/SIGINT analysis, network analyzer integration (pcap/heatmap import) |
+| **Dashboard** | 20-panel web UI with 9 dedicated modules, real TCP scanner, signal presets, cross-platform metrics, auto-refresh |
+| **Database** | SQLite persistent storage with auto-correlation — events, scans, signals, threats, OSINT, packets, GeoIP all cross-referenced |
+| **GeoIP** | IPinfo Lite integration with offline lookup, auto-download script, IP enrichment on all connections |
 | **Encryption** | AES-256-GCM, ChaCha20-Poly1305, post-quantum Kyber/NTRU, 8-layer hybrid |
 | **Protection** | Anti-debug, anti-VM, self-modifying code, polymorphic engine, kernel hooks |
 
 ---
 
-## 🆕 Recent Production Improvements (February 2026)
+## 🆕 Recent Production Improvements (March 2026)
+
+### **Lackadaisical Network Analyzer Integration v1.1.4-alpha**
+
+#### **🔌 Full Network Analyzer Integration**
+- Complete Lackadaisical Network Analyzer source code (313 files) included in `network-analyzer/` directory
+- Node.js/Express backend with protocol analyzers for DNS, MQTT, QUIC, SMB, RDP, FTP, SIP, and more
+- Deep packet inspection (DPI) engine with cleartext credential detection, port scan indicators, and anomaly detection
+- ML-based traffic classification with tiered model management
+- Zero-dependency packet capture service
+- Threat hunting system with behavioral analysis
+- Dashboard proxy at `/api/netanalyzer/*` routes to analyzer backend (port 3000)
+- Start locally: `cd network-analyzer && npm install && npm start`
+
+#### **📦 Enhanced Packet Analyzer Panel**
+- 6 stat cards: live connections, stored packets, RX/TX bytes, unique protocols, DPI alerts
+- **Network Analyzer Status** indicator — shows online/offline with version and interface count
+- **Protocol Distribution** section with per-protocol percentage bars and country breakdown
+- **Deep Packet Inspection** section with metrics grid (security issues, anomalies, port scans, cleartext credentials) and suspicious packet list
+- New API endpoints: `/api/modules/packet_analyzer/protocol_stats`, `/dpi`, `/analyzer_status`
+
+#### **� Production Integration (March 5, 2026)**
+- **Port configuration fixed**: Network Analyzer now correctly configured on port 3000 (`.env` and `serve_dashboard.py` updated)
+- **PCAP synchronization**: Created `sync_network_data.ps1` automation script
+  - **6 PCAP files synced** (558 MB total) from Network Analyzer to SpectreMap
+  - Includes 2 large captures: 172 MB and 386 MB for deep packet inspection testing
+  - Watch mode support for continuous file synchronization
+- **IPinfo Lite database**: Converted NDJSON format (4M+ lines) to optimized JSON with **1.34M IPv4 ranges**
+  - Automatic IP enrichment via ipinfo.io API with SQLite caching
+  - GeoIP lookups on all captured packets and connections
+- **TensorFlow models**: **7/7 AI models loaded** and operational on port 8081
+  - Python 3.13 with TensorFlow 2.20.0 (AVX2/FMA optimized)
+  - Node.js with TensorFlow.js 4.10.0 native bindings
+- **Tor network**: 100% bootstrapped (SOCKS5: 9050, Control: 9051, DNS: 9053)
+- **Services**: Dashboard (8080), Network Analyzer (3000), AI Server (8081), Tor (9050) — all operational ✅
+- See **`INTEGRATION_STATUS.md`** for complete architecture documentation
+
+#### **�📸 Live Screenshots**
+All screenshots in the README are now live captures from the running server, replacing placeholder images.
+
+### **Production-Grade Dashboard Release v1.1.3-alpha**
+
+#### **🧩 9 Dedicated Module Panels (20 panels total)**
+All 9 operational modules now have their own dedicated tabs with full real-time functionality and user controls:
+- **🔍 NetSpectre** — Network reconnaissance with real TCP port scanner, 7 scan presets, banner grabbing
+- **📡 SignalScope** — RF signal analysis with 12 presets (WiFi 2.4/5 GHz, Bluetooth, LoRa, ADS-B, GPS, FM, NOAA), I/Q waveform visualization, stats cards, capture history
+- **🕳️ Dark Terrain** — Tor/dark web connectivity probing, .onion reachability testing, exit node GeoIP
+- **👁️ Retinal Interface** — GeoIP batch visualization, network topology mapping
+- **⚠️ ThreatSig DNA** — Threat pattern analysis with MITRE ATT&CK mapping, severity filtering
+- **🔬 Forensic Replay** — Unified event timeline from persistent database with type filtering, correlation viewer, JSON export
+- **📦 Packet Analyzer** — Live connections + stored packets merged view, DNS lookup, pcap/heatmap file import, network analyzer pull
+- **🌍 OSINT Connector** — VirusTotal, IPinfo, AbuseIPDB, Hunter.io, Shodan integrations
+- **🛰️ Satellite Sync** — ISS tracking, astronaut manifest from live APIs
+
+#### **💾 SQLite Persistent Database**
+- New `spectremap_db.py` module with 11 tables: `events`, `scans`, `signals`, `threats`, `osint_lookups`, `dark_terrain_probes`, `geoip_lookups`, `training_events`, `packet_captures`, `satellite_fixes`, `correlations`
+- Every scan, signal capture, threat, OSINT lookup, dark web probe, GeoIP result, AI inference, and imported packet is persisted to `data/spectremap.db`
+- **Auto-correlation**: events sharing the same IP address are automatically linked in the `correlations` table
+- Timeline API (`/api/db/timeline`) with type filtering and pagination
+- Full-text search (`/api/db/search?q=`) across event summaries
+- DB stats visible in Settings panel and `/api/db/stats` endpoint
+
+#### **🔌 Network Analyzer Integration**
+- Proxy endpoints (`/api/netanalyzer/*`) route requests to external network analyzer backend on port 3000
+- **Pcap import** (`POST /api/pcap/import`) — accepts JSON-parsed packet arrays from pcap files, stores each packet in DB with auto-correlation
+- **Heatmap import** (`POST /api/heatmap/import`) — imports heatmap data with automatic GeoIP enrichment
+- Frontend "Pull from Analyzer" button fetches live packets from the network analyzer
+- File import supports JSON and CSV formats, drag-and-drop ready
+
+#### **🗺️ IPinfo Lite GeoIP Integration**
+- Seed database with 49 real IANA-allocated IP ranges (cloud providers, CDNs, ISPs, DNS, private/reserved)
+- Download script (`scripts/download_ipinfo_lite.py`) fetches the full IPinfo Lite CSV from their GitHub releases
+- Dual-format backend: full downloaded DB uses binary search, seed JSON uses linear scan
+- `/api/geoip/lookup?ip=` endpoint for local offline lookups
+- GeoIP enrichment on all live connections in Packet Analyzer
+- Dedicated GeoIP panel with lookup, history, and database stats
+
+#### **🤖 AI/ML Model Wiring**
+- AI inference server port configurable via `AI_SERVER_PORT` env var (fixed hardcoded port 8081)
+- Fixed `MODELS_DIR` undefined variable bug in `ai_inference_server.py`
+- All 7 AI models defined in frontend config.js with descriptions and expected schemas
+- AI endpoints proxied through dashboard (`/api/ai/status`, `/api/ai/health`, `/api/ai/predict/{model}`) — no CORS or port conflicts
+
+#### **⚙️ New API Endpoints**
+- `GET /api/db/stats` — Database aggregate counts for all tables
+- `GET /api/db/timeline?type=&limit=&offset=` — Filterable event timeline
+- `GET /api/db/search?q=` — Full-text event search
+- `GET /api/db/correlations/{id}` — Cross-feature correlations for an event
+- `GET /api/db/scans` — Stored scan history from DB
+- `GET /api/db/signals` — Stored signal history from DB
+- `GET /api/db/packets` — Stored packet captures from DB
+- `POST /api/pcap/import` — Import pcap packet data
+- `POST /api/heatmap/import` — Import heatmap data with GeoIP enrichment
+- `GET /api/netanalyzer/*` — Proxy to network analyzer backend (port 3001)
+- `POST /api/netanalyzer/*` — Proxy POST to network analyzer
+
+### **Previous: v1.1.2-alpha (March 2026)**
+
+### **Production-Grade Dashboard Release v1.1.2-alpha**
+
+#### **🖥️ Full Windows Compatibility**
+- Cross-platform system metrics: psutil preferred, Windows ctypes (`GetSystemTimes`, `GlobalMemoryStatusEx`) + subprocess fallback, Linux `/proc/*` fallback
+- All system endpoints (`/api/system/metrics`, `/api/system/processes`, `/api/system/network`) work on Windows and Linux
+- `start_dashboard.bat` auto-installs `psutil` for optimal metrics
+
+#### **🔍 Real TCP Port Scanner** (replaces mock)
+- Actual TCP connect scanning via Python `socket` module with `ThreadPoolExecutor(max_workers=50)`
+- Banner grabbing, 30+ service mappings, mixed port range support (`1-100,443,8080`)
+- 7 scan presets: Quick, Common, Web, Database, Remote Access, Mail, Full Range
+- Input validation, hostname resolution check, 10K port limit
+
+#### **📡 Signal Analysis Presets**
+- 12 signal presets: WiFi 2.4/5 GHz, Bluetooth, Zigbee, FM Radio, AIS Marine, ISM 433/868/915 MHz, GPS L1, ADS-B, NOAA Weather Satellite
+- Auto signal-type classification and modulation detection (OFDM, GFSK, OOK/FSK, LoRa CSS, BPSK, etc.)
+- SNR calculation, realistic I/Q sample generation with Gaussian noise
+- Custom frequency/bandwidth/sample-rate entry alongside presets
+
+#### **🛡️ Dynamic Threat Intelligence** (replaces hardcoded)
+- Threats sourced from real scan results + system resource monitoring (CPU/memory/disk thresholds)
+- Auto-generated threats for dangerous services (Telnet, RDP, SMB) with MITRE ATT&CK mapping
+
+#### **⚙️ New API Endpoints**
+- `GET/POST /api/settings` — Server configuration read/update
+
+#### **🔄 All-Panel Auto-Refresh**
+- Crypto, Network, Threats, Settings panels now auto-refresh alongside Performance, Collections, Modules
+
+### **Previous: v1.1.1-alpha (March 2026)**
+
+### **Dashboard & AI Enhancement Release v1.1.1-alpha**
+
+#### **📈 3 New Dashboard Panels (13 total)**
+- **System Performance**: Real-time CPU/memory/disk metrics with progress bars, load average, process list, system info — auto-refreshes every 5 seconds
+- **Cryptographic Module Status**: 12 active crypto modules (AES-256-GCM, ChaCha20-Poly1305, Kyber, NTRU, Dilithium, SPHINCS+, SHA-256, SHA-3, Poly1305, GHASH, PBKDF2, 8-Layer Hybrid), ASM file count, PQC status
+- **Network Status**: Real-time interface RX/TX bytes, Tor connectivity, trained model inventory with sizes and categories
+
+#### **🤖 AI/ML Training Improvements**
+- **Production callbacks**: EarlyStopping, ReduceLROnPlateau, ModelCheckpoint across all training scripts
+- **Increased epochs**: 5→10 for complete models with early stopping to prevent overfitting
+- **Training metadata**: TF version, GPU status, timestamps, epoch counts in results JSON
+
+#### **⚡ AVX2 SIMD Neural Net Inference (x64 ASM)**
+- `nn_dot_product_avx2` — 256-bit FMA dot product
+- `nn_relu_avx2` — In-place ReLU via `vmaxps`
+- `nn_batch_norm_avx2` — Batch normalization with `vrsqrtps`
+- `nn_matvec_mul_avx2` — Dense layer matrix-vector multiply
+- `nn_softmax_exp_avx2` — Polynomial exp() via repeated squaring
+- `nn_vector_add_avx2` / `nn_vector_scale_avx2` — Bias add and scalar multiply
+
+#### **🔌 5 New REST API Endpoints**
+- `/api/system/metrics` — Real-time CPU, memory, disk, load, network I/O
+- `/api/system/crypto` — Cryptographic module and ASM status
+- `/api/system/processes` — Top processes by memory
+- `/api/system/network` — Network interface details
+- `/api/models/status` — Trained model directory scan
+
+### **Previous: v1.1.0-alpha (February 2026)**
 
 ### **Major Enhancement Release v1.1.0-alpha**
 SpectreMap has undergone comprehensive enhancements across all subsystems:
@@ -71,11 +258,14 @@ SpectreMap has undergone comprehensive enhancements across all subsystems:
 - Auto-detect query type (IP/domain/email/hash) with intelligent service routing
 - Search history with replay, color-coded threat scoring
 
-#### **✅ x86-64 Assembly Modules (24 New Files)**
+#### **✅ x86-64 Assembly Modules (130 Files — Full Parity with x86-32)**
+- Every x86-32 ASM file now has a production-grade x86-64 counterpart
 - Post-quantum cryptography: Kyber KEM (NTT/INTT/CBD), NTRU, SPHINCS+, lattice ZK proofs
-- Cryptography: SHA-256, HMAC, PBKDF2, AES-256-CTR with AES-NI, Poly1305
+- Cryptography: SHA-256, HMAC, PBKDF2, AES-256-CTR/CBC/GCM with AES-NI, Poly1305, ChaCha20
 - Protection: VM detection, anti-debug, instruction decoder, metamorphic engine, code virtualization
 - System: TPM 2.0/YubiKey/NitroKey HSM integration, kernel hooks, syscall obfuscation
+- Security: anti-tamper, integrity checks, runtime protection, memory encryption, PE protection
+- Network: HTTP/HTTPS, secure communications, Tor proxy, network protection
 
 #### **✅ x86-32 Algorithm Completions (30+ Files)**
 - Real AES-256 CBC/GCM with FIPS-197, real PCLMULQDQ GHASH, SHA-256 64-round compression
@@ -132,8 +322,8 @@ SpectreMap has undergone comprehensive enhancements to achieve production-ready 
 - **All 9 Modules Enabled**: Full build system integration
 - **Security Flags**: Applied `-fstack-protector-strong -D_FORTIFY_SOURCE=2` throughout
 
-#### **✅ Assembly Language Integration (154 Files Total)**
-- **Complete ASM Library**: 154 assembly files (130 x86-32, 24 x86-64) properly linked with C/C++ code
+#### **✅ Assembly Language Integration (260 Files Total)**
+- **Complete ASM Library**: 260 assembly files (130 x86-32, 130 x86-64) properly linked with C/C++ code
 - **Organized by Functionality** (13+ categories):
   - Core x64 (memory protection, anti-debug, syscalls)
   - Cryptography (AES-GCM, encryption, SHA256, hybrid schemes)
@@ -162,7 +352,7 @@ SpectreMap has undergone comprehensive enhancements to achieve production-ready 
 ### **Key Metrics**
 - **Lines of Production Code Added**: +650
 - **Stub/Duplicate Code Removed**: -2,207  
-- **ASM Files Integrated**: 154 total (130 x86-32, 24 x86-64)
+- **ASM Files Integrated**: 260 total (130 x86-32, 130 x86-64)
 - **ML Models Trained**: 20 (3 base + 4 enhanced + 13 complete)
 - **Security Vulnerabilities Fixed**: Multiple (command injection, file operations)
 - **Build System Coverage**: 100% (all modules)
@@ -300,12 +490,12 @@ For detailed technical information, see:
 - **Encrypted Operational Cache**: Secure storage for AI/recon logs and operational data
 - **Forensic Anti-Analysis**: Memory scrubbing and secure data destruction capabilities
 - **Windows Deployment**:
-  - **Standalone EXE**: Self-contained executable with no external DLL dependencies
-  - **MSI Installer**: Professional Windows installer with WiX Toolset
-  - **ZIP Package**: Portable deployment option
+  - **Standalone EXE**: Native Win32 system tray application with zero external GUI dependencies
+  - **MSI Installer**: Professional Windows installer via WiX Toolset 3.14
+  - **Dashboard Scripts**: `start_dashboard.bat` / `stop_dashboard.bat` for service management
   - **Digital Signing Ready**: Infrastructure for code signing certificates
-  - **Admin Elevation**: Automatic privilege escalation for network operations
-  - **Windows 10/11 Compatibility**: Manifest-based OS version targeting
+  - **DPI Aware**: Per-monitor DPI awareness via application manifest
+  - **Windows 7-11 Compatibility**: Manifest-based OS version targeting
 
 ---
 
@@ -351,23 +541,23 @@ For detailed technical information, see:
 - **Virtualization**: Not recommended for production use, may trigger anti-VM detection
 
 ### **Technology Stack**
-- **Core Languages**: C++17, C11, x86-64 Assembly
-- **Security Modules**: Rust (memory safety critical components)
-- **UI Framework**: Qt6 with OpenGL acceleration, SDL2 fallback
-- **Theming Engine**: 5 production themes (80s Cosmic, 90s Cyber, Light, Dark, Custom)
+- **Core Languages**: C++17, C11, x86-64 Assembly (260 NASM modules)
+- **Desktop Application**: Native Win32 API (system tray, process management)
+- **Web Dashboard**: Python HTTP server + HTML5/CSS3/JavaScript (10 panels, 30+ REST endpoints)
+- **Theming Engine**: 5 production themes (80s Retro Cyber, 90s Windows, Matrix, Light, Dark, Custom)
 - **AI Stack**: 
   - **TensorFlow 2.x**: CPU and GPU inference with automatic hardware detection
   - **Custom Neural Models**: Threat pattern recognition, anomaly detection, behavioral analysis
-  - **llama.cpp**: Local LLM for natural language recon queries
-  - **GGUF/RWKV**: Embedded inference for offline AI operations
+  - **Ollama**: Local LLM chat assistant (llama3.2) for natural language recon queries
   - **Model Optimization**: Quantization (INT8/FP16) for performance on limited hardware
-- **Reconnaissance Tools**: nmap, tshark, scapy, aircrack-ng, bluewalker, rtl_433
 - **Cryptography**: 
-  - **Production-Grade**: AES-256-GCM, ChaCha20-Poly1305 (OpenSSL)
-  - **Triple-Layer Hybrid**: Multi-cipher defense in depth
-  - **Post-Quantum Ready**: Kyber/Dilithium algorithm support
-  - **Zero-Knowledge**: Local key generation, no external dependencies
-- **Build System**: CMake 3.16+, Modern C++ toolchain, Windows MSI packaging
+  - **Production-Grade**: AES-256-GCM with GHASH/PCLMULQDQ, AES-256-CBC with FIPS-197 S-Box
+  - **Post-Quantum**: Kyber-1024 (NTT/INTT/CBD/KEM), Dilithium (sign/verify), NTRU, SIKE, NewHope
+  - **Hashing**: SHA-256 (64-round schedule), SHA-1 (80 rounds), CRC32, HMAC-SHA256, PBKDF2
+  - **Zero-Knowledge**: Local key generation, RDRAND+RDTSC CSPRNG
+- **OSINT**: VirusTotal, IPinfo, AbuseIPDB, Hunter.io, Shodan (API key based)
+- **Network**: Tor SOCKS5 proxy support, PySocks
+- **Build System**: MinGW64/GCC + NASM, Makefile, WiX 3.14 (MSI), static linking
 
 ---
 
@@ -392,99 +582,68 @@ brew install cmake qt6 sdl2 openssl libpcap python3
 pip3 install tensorflow
 ```
 
-#### Windows (see docs/WINDOWS_BUILD.md for detailed instructions)
+#### Windows (Recommended — see [BUILD_AND_DEPLOYMENT.md](BUILD_AND_DEPLOYMENT.md) for full guide)
 
-**Option 1: Visual Studio (MSVC)**
-- Visual Studio 2022 (Community or higher) with C++ workload
-- CMake 3.16+
-- Qt 6.6.0 for MSVC 2019 64-bit
-- OpenSSL for Windows (Win64 OpenSSL v3.x)
-- (Optional) WiX Toolset 3.14 for MSI installer
-- (Optional) TensorFlow C++ libraries
-
-**Option 2: MinGW64/GCC (Zero Dependencies)**
-- MinGW-w64 (GCC 11.0+)
-- Make (mingw32-make)
-- Qt 6.5.0+ for MinGW 64-bit
-- OpenSSL for Windows (Win64 OpenSSL v3.x)
-- (Optional) NASM for assembly optimizations
+**MinGW64/GCC + NASM (standalone Win32 build — zero external dependencies):**
+- MinGW-w64 (GCC 12+) with `x86_64-w64-mingw32-gcc` in PATH
+- NASM 2.15+
+- GNU Make 4.0+ (`mingw32-make` or `make`)
+- Python 3.8+ (for web dashboard)
 - (Optional) WiX Toolset 3.14 for MSI installer
 
 ### **Build Instructions**
 
-#### Linux/macOS
+#### Windows (Primary Target)
+```cmd
+:: Clone the repository
+git clone https://github.com/The-Spectral-Operator/SpectreMap
+cd SpectreMap
+
+:: Ensure MinGW-w64 + NASM are in PATH
+set PATH=C:\mingw64\bin;C:\nasm;%PATH%
+
+:: Build everything (assembles 130 x64 ASM files + compiles + links)
+make all
+
+:: Output: dist\bin\SpectreMap.exe
+
+:: Install to dist/ with dashboard files
+make install
+
+:: Build MSI installer (requires WiX 3.14)
+make msi
+
+:: Output: releases\SpectreMap-1.1.0-alpha-win64.msi
+```
+
+#### Run Web Dashboard (no build required)
+```cmd
+:: Start dashboard
+start_dashboard.bat
+:: Opens http://127.0.0.1:8080 in your browser
+
+:: Stop dashboard
+stop_dashboard.bat
+
+:: Or directly:
+python serve_dashboard.py
+```
+
+#### Linux/macOS (ASM assembly + dashboard only)
 ```bash
 # Clone the repository
-git clone https://github.com/lackadaisical-security/spectremap.git
-cd spectremap
-
-# Create and enter build directory
-mkdir build && cd build
-
-# Configure build with optimizations
-cmake -DCMAKE_BUILD_TYPE=Release \
-      -DCMAKE_CXX_FLAGS="-O3 -march=native" \
-      -DENABLE_TESTING=ON \
-      ..
-
-# Compile (parallel build)
-make -j$(nproc)
-
-# Optional: Run test suite
-make test
-
-# Install system-wide (optional)
-sudo make install
-```
-
-#### Windows (One-Click Build)
-
-**MSVC Build (Visual Studio):**
-```cmd
-REM Open Visual Studio 2022 Developer Command Prompt as Administrator
-cd SpectreMap
-scripts\build_windows.bat
-
-REM Output files:
-REM - build_windows\Release\SpectreMap.exe (standalone executable)
-REM - build_windows\SpectreMap-0.1.0-win64.zip (portable package)
-REM - build_windows\SpectreMap-0.1.0-win64.msi (installer)
-```
-
-**MinGW64/GCC Build (Zero Dependencies):**
-```cmd
-REM Open MinGW64 terminal or Command Prompt with MinGW in PATH
+git clone https://github.com/The-Spectral-Operator/SpectreMap
 cd SpectreMap
 
-REM One-click build with all features
-build_mingw.bat
+# Assemble x64 ASM files (ELF format)
+make asm NASM_FORMAT=elf64
 
-REM Or use Make directly
-mingw32-make -j%NUMBER_OF_PROCESSORS%
-mingw32-make install
-
-REM Build MSI installer (requires WiX 3.14)
-mingw32-make msi
-
-REM Output files:
-REM - dist\bin\SpectreMap.exe (standalone executable)
-REM - SpectreMap-1.0.0-win64-mingw.zip (portable package)
-REM - SpectreMap-1.0.0-win64.msi (MSI installer)
+# Run dashboard
+python3 serve_dashboard.py
+# Open http://127.0.0.1:8080
 ```
 
-**Build Options:**
-```cmd
-REM Debug build
-build_mingw.bat debug
-
-REM Release build with tests
-build_mingw.bat release test
-
-REM Without assembly optimizations
-build_mingw.bat no-asm
-```
-
-For detailed Windows build instructions, see [docs/WINDOWS_BUILD.md](docs/WINDOWS_BUILD.md)
+For detailed build instructions, see [BUILD_AND_DEPLOYMENT.md](BUILD_AND_DEPLOYMENT.md) and [docs/WINDOWS_BUILD.md](docs/WINDOWS_BUILD.md)
 
 ### **AI Model Setup**
 
@@ -1174,7 +1333,7 @@ cmake -DCMAKE_CXX_FLAGS="-fsanitize=thread -g" ..
 
 ```
 SpectreMap/
-├── asm/                        # Assembly modules (154 files: 130 x86-32, 24 x86-64)
+├── asm/                        # Assembly modules (260 files: 130 x86-32, 130 x86-64)
 │   ├── ARCHITECTURE_NOTES.md   # ASM architecture documentation
 │   ├── *_x64.asm              # x86-64 optimized modules
 │   └── *.asm                   # x86-32 modules

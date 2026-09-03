@@ -2,317 +2,247 @@
 
 ## Supported Versions
 
-We patch security vulnerabilities in these versions:
+We release patches for security vulnerabilities in the following versions:
 
-| Version | Supported          | Status |
-| ------- | ------------------ | ------ |
-| 1.0.x   | ✅ Yes             | Current stable |
-| 0.1.x   | ⚠️ Legacy          | Critical fixes only |
-| < 0.1   | ❌ No              | Upgrade immediately |
-
-**Upgrade or suffer the consequences.** We're not patching ancient versions.
+| Version | Supported          |
+| ------- | ------------------ |
+| 0.1.x   | :white_check_mark: |
 
 ## Reporting a Vulnerability
 
-### DO NOT CREATE PUBLIC GITHUB ISSUES FOR SECURITY BUGS
+**DO NOT** create public GitHub issues for security vulnerabilities.
 
-Seriously. Don't be that person who burns everyone by disclosing 0-days publicly.
+Instead, please report security vulnerabilities by emailing:
 
-### Contact
-
-📧 **lackadaisicalresearch@pm.me**  
-🔐 **PGP Key**: [To be published]  
-🔒 **XMPP+OTR**: thelackadaisicalone@xmpp.jp
+📧 **lackadaisicalresearch@pm.me**
 
 ### What to Include in Your Report
 
-Help us help you. Include:
+To help us better understand and resolve the issue, please include:
 
-1. **Description** - Clear description of the vulnerability (not "login is broken")
-2. **Impact** - What can an attacker actually do? Remote code execution? Data exfiltration? 
-3. **Reproduction Steps** - Step-by-step instructions that work
-4. **Proof of Concept** - Code, commands, or screenshots that demonstrate the issue
-5. **Suggested Fix** - If you have one (optional but gets you bonus points)
-6. **Environment** - OS, version, build config, dependencies
+1. **Description**: Clear description of the vulnerability
+2. **Impact**: Potential impact and attack scenario
+3. **Reproduction**: Step-by-step instructions to reproduce
+4. **Proof of Concept**: Code or commands demonstrating the issue
+5. **Suggested Fix**: If you have one (optional but appreciated)
+6. **Environment**: OS, version, configuration details
 
 ### Example Report Template
 
 ```
-Subject: [SECURITY] Authentication bypass in API endpoint
+Subject: [SECURITY] Brief description of vulnerability
 
 Description:
-The /api/login endpoint accepts expired JWT tokens due to missing
-timestamp validation in TokenValidator::verify().
+[Detailed description of the vulnerability]
 
 Impact:
-Attacker can reuse expired tokens indefinitely, bypassing authentication
-and gaining unauthorized access to protected endpoints.
+[What can an attacker do? What data is at risk?]
 
 Steps to Reproduce:
-1. Obtain valid JWT token via legitimate login
-2. Wait for token to expire (default: 1 hour)
-3. Send API request with expired token
-4. Request succeeds despite expired timestamp
+1. [First step]
+2. [Second step]
+3. [etc.]
 
 Proof of Concept:
-curl -H "Authorization: Bearer <expired_token>" \
-     https://target/api/protected
-
-Response: 200 OK (should be 401 Unauthorized)
+[Code, commands, or screenshots]
 
 Suggested Fix:
-Add timestamp validation in TokenValidator::verify():
-if (token.exp < std::time(nullptr)) {
-    throw TokenExpiredException();
-}
+[Your recommendation, if any]
 
 Environment:
-- SpectreMap Version: 1.0.0
-- Operating System: Ubuntu 22.04
-- Build: Release
+- SpectreMap Version: 0.1.0
+- Operating System: Windows 11 / Ubuntu 22.04 / etc.
+- Build Configuration: [Release/Debug]
 ```
 
 ## Response Timeline
 
-We take security seriously. Here's what to expect:
-
-* **Initial Response**: Within **48 hours** of report
-* **Severity Assessment**: Within **5 business days**
+* **Initial Response**: Within 48 hours of report
+* **Severity Assessment**: Within 5 business days
 * **Fix Development**: Based on severity (see below)
-* **Public Disclosure**: **90 days** or when patched (coordinated with you)
+* **Public Disclosure**: Coordinated with reporter
 
 ### Severity Levels
 
-| Severity | Fix Timeline | Examples |
-|----------|-------------|----------|
-| **Critical** | 24-48 hours | RCE, auth bypass, crypto failures, data exfiltration |
-| **High** | 3-7 days | Privilege escalation, SQL injection, XSS → account takeover |
-| **Medium** | 14-30 days | Information disclosure, CSRF, DoS |
-| **Low** | 30-90 days | Minor info leaks, non-exploitable bugs |
+| Severity | Response Time | Examples |
+|----------|---------------|----------|
+| **Critical** | 24-48 hours | Remote code execution, authentication bypass, data exfiltration |
+| **High** | 3-7 days | Privilege escalation, SQL injection, XSS leading to account takeover |
+| **Medium** | 14-30 days | Information disclosure, CSRF, denial of service |
+| **Low** | 30-90 days | Minor information leaks, non-exploitable bugs |
 
 ## What to Expect
 
-1. **Acknowledgment** - We'll confirm receipt within 48 hours
-2. **Assessment** - We'll verify and assess severity
-3. **Fix Development** - We'll develop, test, and validate the fix
-4. **Coordination** - We'll work with you on disclosure timeline
-5. **Release** - We'll release patch and security advisory
-6. **Credit** - You get credited in the advisory (unless you want anonymity)
+1. **Acknowledgment**: We'll acknowledge receipt of your report within 48 hours
+2. **Assessment**: We'll assess the vulnerability and determine severity
+3. **Fix Development**: We'll develop and test a fix
+4. **Coordination**: We'll coordinate disclosure timeline with you
+5. **Release**: We'll release the patch and security advisory
+6. **Credit**: We'll credit you in the advisory (unless you prefer to remain anonymous)
 
 ## Disclosure Policy
 
-### Coordinated Disclosure (Responsible Disclosure)
+### Coordinated Disclosure
 
-We follow industry-standard coordinated disclosure:
+We follow coordinated disclosure practices:
 
-* **90-Day Standard** - We aim to fix and disclose within 90 days
-* **Reporter Involvement** - We'll keep you updated on progress
-* **Coordinated Release** - Public disclosure coordinated with you
-* **Early Disclosure Exception** - If actively exploited in the wild, we disclose immediately
+* **90-Day Deadline**: We aim to fix and disclose within 90 days
+* **Reporter Involvement**: We'll keep you updated on fix progress
+* **Disclosure Timing**: We'll coordinate public disclosure with you
+* **Early Disclosure**: May occur if actively exploited in the wild
 
 ### Security Advisories
 
-Published on:
+Security advisories will be published:
+
 * GitHub Security Advisories
 * Release notes
-* Security mailing list (subscribe: lackadaisicalresearch@pm.me)
-* Website (https://lackadaisical-security.com/security)
+* Security mailing list (if established)
+* Website security page
 
 ## Security Best Practices for Users
 
 ### General Security
 
-1. **Keep Updated** - Run the latest version. Old versions have known vulnerabilities.
-2. **Verify Downloads** - Check SHA-256 hashes before running binaries
-3. **Use HTTPS** - Enable TLS for all API communications
-4. **Strong Auth** - Use strong, unique API keys (not "password123")
-5. **Network Segmentation** - Run SpectreMap on isolated/dedicated networks
+1. **Keep Updated**: Always use the latest version of SpectreMap
+2. **Verify Downloads**: Check SHA-256 hashes of downloaded files
+3. **Use HTTPS**: Enable HTTPS for API communications
+4. **Strong Authentication**: Use strong, unique API keys
+5. **Network Segmentation**: Run SpectreMap on isolated networks
 
 ### Data Security
 
-1. **Enable Encryption** - Use database encryption (it's there for a reason)
-2. **Encrypted Storage** - Store databases on encrypted filesystems
-3. **File Permissions** - Restrict file permissions (`chmod 600` your configs)
-4. **Secure Wipe** - Use panic-wipe feature for sensitive data destruction
-5. **Backup Security** - Encrypt backups, don't store them in plaintext
+1. **Enable Encryption**: Ensure database encryption is enabled
+2. **Secure Storage**: Store databases on encrypted filesystems
+3. **Access Control**: Restrict file system permissions appropriately
+4. **Secure Wipe**: Use secure wipe for sensitive data deletion
+5. **Backup Security**: Encrypt backups and store securely
 
 ### Network Security
 
-1. **Firewall Rules** - Restrict API access to trusted networks only
-2. **VPN/Tunnels** - Use VPN or SSH tunnels for remote access
-3. **Authentication** - Enable API authentication in production (don't skip this)
-4. **Rate Limiting** - Implement rate limiting at network/application layer
-5. **Valid Certificates** - Use properly signed TLS certs (no self-signed in prod)
+1. **Firewall Rules**: Restrict API server access to trusted networks
+2. **VPN/Tunnel**: Use VPN or SSH tunnels for remote access
+3. **Authentication**: Always enable API authentication in production
+4. **Rate Limiting**: Implement rate limiting at network edge
+5. **TLS Certificates**: Use valid, non-self-signed certificates
 
 ### Operational Security
 
-1. **Authorization** - Get **written authorization** before any security testing
-2. **Audit Logging** - Enable comprehensive logging, monitor it regularly
-3. **Incident Response** - Have procedures ready before you need them
-4. **Data Retention** - Follow retention/destruction policies (don't hoard data)
-5. **Least Privilege** - Run with minimum required permissions (not root unless necessary)
+1. **Authorization**: Obtain written authorization for all testing
+2. **Audit Logging**: Enable and monitor comprehensive audit logs
+3. **Incident Response**: Have incident response procedures ready
+4. **Data Retention**: Follow data retention and destruction policies
+5. **Principle of Least Privilege**: Run with minimum required permissions
 
 ## Known Security Considerations
 
-### By Design (Not Bugs)
+### By Design
 
-Some behaviors are intentional and not considered vulnerabilities:
+Some behaviors are by design and not considered vulnerabilities:
 
-* **Admin Privileges Required** - Needed for raw sockets, packet capture, low-level access
-* **Local SQLite Storage** - Designed for local use (enable encryption)
-* **API Authentication Optional** - Defaults to disabled for development (enable in production)
-* **SDR Hardware Access** - Direct hardware access required for signal analysis
-* **Offensive Capabilities** - This is a penetration testing tool (use responsibly)
+* **Administrator Privileges**: Required for raw socket access and packet capture
+* **Local Storage**: SQLite database stored locally (use encryption)
+* **API Authentication**: Optional by default (must be enabled for production)
+* **SDR Access**: Direct hardware access required for signal analysis
 
 ### Defense in Depth
 
 SpectreMap implements multiple security layers:
 
-1. **Encryption** - AES-256-GCM + ChaCha20-Poly1305 (production-grade)
-2. **Authentication** - Bearer token API authentication
-3. **Input Validation** - Comprehensive sanitization of external data
-4. **Memory Safety** - RAII, smart pointers, bounds checking
-5. **Audit Logging** - Security event logging for forensics
+1. **Encryption**: AES-256-GCM and ChaCha20-Poly1305
+2. **Authentication**: Bearer token API authentication
+3. **Input Validation**: Comprehensive input sanitization
+4. **Secure Coding**: Memory-safe practices, bounds checking
+5. **Audit Logging**: Comprehensive security event logging
 
 ## Security Features
 
 ### Cryptography
 
-* **AES-256-GCM** - NIST-approved authenticated encryption
-* **ChaCha20-Poly1305** - Modern AEAD cipher (faster than AES on CPUs without AES-NI)
-* **OpenSSL 3.x** - Industry-standard crypto library (not homebrew crypto)
-* **Secure Random** - OpenSSL `RAND_bytes()` for key generation
-* **Post-Quantum Ready** - Infrastructure for Kyber/Dilithium integration
+* **AES-256-GCM**: NIST-approved authenticated encryption
+* **ChaCha20-Poly1305**: Modern AEAD cipher
+* **OpenSSL**: Industry-standard cryptographic library
+* **Secure Random**: OpenSSL RAND_bytes for key generation
 
 ### Data Protection
 
-* **Encrypted Database** - All data encrypted at rest (AES-256)
-* **Secure Wiping** - DoD 5220.22-M multi-pass overwrite
-* **Memory Protection** - Stack canaries, ASLR, DEP/NX, PIE
-* **Thread Safety** - Mutex-protected critical sections
+* **Encrypted Database**: All data encrypted at rest
+* **Secure Wiping**: Multi-pass overwrite on deletion
+* **Memory Protection**: Stack canaries, ASLR, DEP/NX
+* **Thread Safety**: Mutex-protected critical sections
 
 ### Network Security
 
-* **TLS 1.3 Support** - Modern TLS for API communications
-* **API Key Authentication** - Token-based access control
-* **Input Validation** - SQL injection, XSS, command injection prevention
-* **Rate Limiting Infrastructure** - Ready for production deployment
+* **TLS Support**: HTTPS for API communications (when configured)
+* **Authentication**: API key-based access control
+* **Input Validation**: SQL injection and XSS prevention
+* **Rate Limiting Ready**: Infrastructure for rate limiting
 
 ## Bug Bounty Program
 
-**Status**: Not currently offering monetary rewards.
+At this time, SpectreMap does not have a formal bug bounty program. However, we deeply appreciate security researchers who responsibly disclose vulnerabilities and will:
 
-However, we deeply appreciate security researchers who responsibly disclose vulnerabilities. You'll get:
-
-* Public acknowledgment (if desired)
-* Credit in security advisories and release notes
-* Exclusive early access to new features
-* Our eternal gratitude
-* **Possible monetary rewards** for critical vulnerabilities (case-by-case, we're not rich)
+* Acknowledge your contribution
+* Credit you in security advisories (if desired)
+* Provide exclusive early access to future features (when available)
+* Consider monetary rewards for critical vulnerabilities (case-by-case basis)
 
 ## Security Audits
 
 SpectreMap undergoes regular security reviews:
 
-* **Manual Code Review** - Security-critical components reviewed by humans
-* **Static Analysis** - Automated tools (clang-tidy, cppcheck, SonarQube)
-* **Dependency Scanning** - Regular CVE checks on dependencies
-* **Penetration Testing** - Periodic pentesting (when feasible/funded)
+* **Code Review**: Manual code review of critical components
+* **Static Analysis**: Automated static analysis tools
+* **Dependency Scanning**: Regular dependency vulnerability scans
+* **Penetration Testing**: Periodic penetration testing (when feasible)
 
 ## Security Updates
 
-Stay informed about security patches:
+Subscribe to security updates:
 
-* **GitHub Watch** - Watch repository for security advisories
-* **Email List** - Join security announcements (email: lackadaisicalresearch@pm.me)
-* **RSS Feed** - Follow releases for security patches
-* **Twitter/X** - [@lackadaisical_sec](https://twitter.com/lackadaisical_sec) (when we make one)
+* **GitHub Watch**: Watch the repository for security advisories
+* **Email**: Contact us to join security announcement list
+* **RSS**: Follow releases for security patches
 
 ## Compliance
 
-SpectreMap is designed with regulatory compliance in mind:
+SpectreMap is designed with compliance in mind:
 
-* **GDPR** - Data minimization, right to erasure, encryption at rest
-* **CCPA** - Data protection and transparency
-* **NIST Cybersecurity Framework** - Following NIST guidelines
-* **OWASP** - Secure coding practices from OWASP Top 10
-* **Export Controls** - See `EXPORT_CONTROLS_COMPLIANCE.md`
+* **GDPR**: Data minimization and right to erasure
+* **CCPA**: Data protection and transparency
+* **NIST**: Following NIST cybersecurity framework
+* **OWASP**: Following OWASP secure coding practices
 
 ## Third-Party Dependencies
 
 We monitor security advisories for all dependencies:
 
-* **Qt 6.x** - UI framework
-* **OpenSSL 3.x** - Cryptography
-* **SQLite 3.x** - Database
-* **TensorFlow 2.x** - AI/ML (optional)
-* **libpcap** - Packet capture
-* **Other dependencies** - Listed in `CMakeLists.txt`
-
-Outdated dependencies with known CVEs will be updated ASAP.
+* Qt 6.x
+* OpenSSL 3.x
+* SQLite 3.x
+* (Other dependencies as added)
 
 ## Responsible Disclosure Hall of Fame
 
-We thank the following security researchers for responsibly disclosing vulnerabilities:
+We thank the following researchers for responsibly disclosing vulnerabilities:
 
-_(List will be updated as vulnerabilities are reported and patched)_
-
-**Contributors:**
-* [Your name here - find a bug!]
-
-## What We Don't Consider Vulnerabilities
-
-To save everyone time, these are **NOT** vulnerabilities:
-
-* **Requires physical access** - If attacker has physical access, game over anyway
-* **Requires admin/root** - Tool requires privileges by design
-* **Social engineering** - We can't patch human stupidity
-* **Denial of service via resource exhaustion** - Don't scan the entire IPv4 space
-* **Issues in dependencies** - Report to upstream (but let us know)
-* **Theoretical attacks** - Show us a working exploit or GTFO
-
-## Legal Safe Harbor
-
-We support security research conducted in good faith:
-
-* We will **NOT** pursue legal action against researchers who:
-  * Report vulnerabilities responsibly (private disclosure)
-  * Act in good faith (no malicious intent)
-  * Don't exfiltrate/destroy data
-  * Don't pivot to other systems
-  * Follow coordinated disclosure timeline
-
-* We **WILL** pursue legal action if you:
-  * Publicly disclose before coordination
-  * Steal or destroy data
-  * Attack production systems without permission
-  * Extort or threaten us
-
-Don't be a dick, and we won't be either.
+_(List will be updated as vulnerabilities are reported and fixed)_
 
 ## Contact
 
-**Security Contact:**
+For security-related inquiries:
+
 * **Email**: lackadaisicalresearch@pm.me
 * **PGP Key**: [To be published]
-* **XMPP+OTR**: thelackadaisicalone@xmpp.jp
 * **Website**: https://lackadaisical-security.com
 * **GitHub**: https://github.com/Lackadaisical-Security
 
-**For Non-Security Issues:**
+For general support (non-security):
 * **GitHub Issues**: https://github.com/Lackadaisical-Security/SpectreMap/issues
 
 ---
 
-### 🔥 **Secured by Lackadaisical Security** 🔥
+**Last Updated**: January 2025  
+**Version**: 1.0
 
-*"In the realm of ones and zeros, where the weak are exploited and the strong prevail, only those who understand the ancient art of cryptographic protection shall endure. We forge tools in the fires of rigorous security practice, tempered by the harsh reality of modern threats. SpectreMap stands as a bastion against the chaos—defended by layers of encryption, hardened by years of security research, and wielded only by those authorized to walk the shadowed path of offensive security operations."*
-
-— **Lackadaisical Security, The Operator** (2025)
-
----
-
-**Last Updated**: January 2026  
-**Version**: 2.0
-
-**Copyright © 2025-2026 Lackadaisical Security. All rights reserved.**
+**Copyright © 2025 Lackadaisical Security. All rights reserved.**
