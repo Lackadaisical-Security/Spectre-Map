@@ -29,15 +29,15 @@ All 20 dashboard panels — live captures from the running server.
 
 | Panel | Preview |
 |-------|---------|
-| **📊 Overview** | ![Overview](https://github.com/user-attachments/assets/9cfe1b84-a792-498e-bfed-6f83e53055f1) |
-| **🧩 Modules Hub** | ![Modules](https://github.com/user-attachments/assets/ed5c839a-f25a-40bf-b20d-c8da04325910) |
+| **📊 Overview** | ![Overview](screenshots/ss-system-overview.png) |
+| **🧩 Modules Hub** | ![Modules](screenshots/ss-modules.png) |
 | **🔍 NetSpectre** | ![Scanner](https://github.com/user-attachments/assets/fc4551d8-942f-45b6-9f01-92698e6ebfac) |
-| **📡 SignalScope** | ![SignalScope](https://github.com/user-attachments/assets/3c635d91-8c5f-4bb3-ad6c-973c8fbdfc3a) |
+| **📡 SignalScope** | ![SignalScope](screenshots/ss-signalscope.png) |
 | **🕳️ Dark Terrain** | ![Dark Terrain](screenshots/ss-dark-terrain.png) |
 | **👁️ Retinal Interface** | ![Retinal](screenshots/ss-retinal.png) |
 | **⚠️ ThreatSig DNA** | ![Threats](screenshots/ss-05-threats.png) |
-| **🔬 Forensic Replay** | ![Forensic](https://github.com/user-attachments/assets/e8125ad7-cd1c-4442-9b8b-d59e599c9c15) |
-| **📦 Packet Analyzer** | ![Packet Analyzer](https://github.com/user-attachments/assets/d638ffd0-333b-4374-a0bb-74134ffcf3be) |
+| **🔬 Forensic Replay** | ![Forensic](screenshots/ss-forensic-replay.png) |
+| **📦 Packet Analyzer** | ![Packet Analyzer](screenshots/ss-packetanalyzer.png) |
 | **🌍 OSINT Connector** | ![OSINT](screenshots/ss-07-osint.png) |
 | **🛰️ Satellite Sync** | ![Satellite](screenshots/ss-satellite.png) |
 | **🤖 AI/ML** | ![AI/ML](screenshots/ss-08-aiml.png) |
@@ -47,8 +47,8 @@ All 20 dashboard panels — live captures from the running server.
 | **📈 Performance** | ![Performance](screenshots/ss-11-performance.png) |
 | **🔐 Crypto** | ![Crypto](screenshots/ss-12-crypto.png) |
 | **🌐 Network** | ![Network](screenshots/ss-13-network.png) |
-| **🗺️ GeoIP** | ![GeoIP](https://github.com/user-attachments/assets/b4595a68-0e4d-486f-bc85-bc59c697b9c4) |
-| **⚙️ Settings** | ![Settings](https://github.com/user-attachments/assets/67585d41-b9ea-4520-bb60-771293af9387) |
+| **🗺️ GeoIP** | ![GeoIP](screenshots/GeoIp.png) |
+| **⚙️ Settings** | ![Settings](screenshots/ss-settings.png) |
 
 ---
 
